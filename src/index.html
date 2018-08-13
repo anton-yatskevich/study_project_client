@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studyProject">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Study project</title>
+</head>
+<body>
+    <header></header>
+    <main ng-controller="CardsFieldController">
+        <h1>{{title}}</h1>
+        <input type="text" ng-model="query">
+        <ul>
+            <li ng-repeat="card in cards | orderBy:'-representativeExmp.spend' | filter:{name:query}">
+                <span>
+                    Card name: {{card.name}}
+                </span>
+                <p>
+                    Image: {{card.image | limitTo: 50 }}...
+                </p>
+                <p>
+                    Price: {{card.representativeExmp.spend}}
+                </p>
+            </li>
+        </ul>
+        <p>All cards: {{cards.length}}</p>
+    </main>
+    <footer></footer>
+</body>
+</html>
