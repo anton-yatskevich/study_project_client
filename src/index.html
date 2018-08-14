@@ -13,12 +13,10 @@
         <input type="text" ng-model="query">
         <ul>
             <li ng-repeat="card in cards | orderBy:'-representativeExmp.spend' | filter:{name:query}">
-                <span>
-                    Card name: {{card.name}}
-                </span>
                 <p>
-                    Image: {{card.image | limitTo: 50 }}...
+                    Card name: {{card.name}}
                 </p>
+                <img ng-src="{{ card.image }}" alt="card.name" style="width:300px">
                 <p>
                     Price: {{card.representativeExmp.spend}}
                 </p>
