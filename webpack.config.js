@@ -22,11 +22,15 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					{
-						loader: MiniCssExtractPlugin.loader,
+						loader: "style-loader"
 					},
-					'css-loader',
-					'sass-loader',
-				],
+					{
+						loader: "css-loader" 
+					},
+					{
+						loader: "sass-loader" 
+					}
+				]
 			},
 			{
                 test: /\.html$/,
@@ -43,10 +47,10 @@ module.exports = {
 			filename: "./index.html",
 			inject: 'head'
         }),
-        new MiniCssExtractPlugin({
-            filename: 'index.css',
-            allChunks: true,
-        })
+        // new MiniCssExtractPlugin({
+        //     filename: 'index.css',
+        //     allChunks: true,
+        // })
     ],
     devtool: 'source-map'
 };
