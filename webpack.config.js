@@ -28,6 +28,13 @@ module.exports = {
 					'sass-loader',
 				],
 			},
+			{
+                test: /\.html$/,
+                loader: 'html-loader',
+                // options: {
+                //   	attrs: ['link:href'],
+                // },
+            }
 		],
 	},
 	plugins: [

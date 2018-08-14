@@ -9,17 +9,25 @@
 <body>
     <header></header>
     <main ng-controller="CardsFieldController">
+        <card-type-select></card-type-select>
+
         <h1>{{title}}</h1>
-        <input type="text" ng-model="query">
+        <!-- <input type="text" ng-model="query"> -->
+        <!-- <p>{{cardTypes.selectedCardType}}</p> -->
         <ul>
-            <li ng-repeat="card in cards | orderBy:'-representativeExmp.spend' | filter:{name:query}">
-                <p>
+            <li ng-repeat="card in cards | orderBy:'-representativeExmp.spend' | filter: {type:cardTypes.selectedCardType}">
+                <h3>
                     Card name: {{card.name}}
-                </p>
+                </h3>
                 <img ng-src="{{ card.image }}" alt="{{ card.name }}" style="width:300px">
+                <p>
+                    Type: {{card.type}}
+                </p>
                 <p>
                     Price: {{card.representativeExmp.spend}}
                 </p>
+                
+
             </li>
         </ul>
         <p>All cards: {{cards.length}}</p>
