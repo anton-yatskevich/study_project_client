@@ -1,11 +1,11 @@
-import template from './index.html'
+import template from './index.html';
 
-export default ngModule => {
-    ngModule.directive('sortTypeSelect', SortTypeSelectFn);
-    function SortTypeSelectFn() {
-        return {
-            restrict: 'E',
-            template: template
-        }
-    }
-}
+export default (ngModule) => {
+	function SortTypeSelectFn() {
+		return {
+			restrict: 'E',
+			template,
+		};
+	}
+	ngModule.directive('sortTypeSelect', SortTypeSelectFn);
+};

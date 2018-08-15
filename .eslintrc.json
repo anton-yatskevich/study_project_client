@@ -10,22 +10,11 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            4, 
-            "tab"
-        ],
+        "indent": ["error", "tab"],
         "no-tabs": 0,
         "linebreak-style": [
             "error",
             "windows"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
         ]
     }
 }
