@@ -1,27 +1,40 @@
 import angular from 'angular';
-import Components from './components/index';
-import availableCardTypes from './constants/cardTypes';
-import availableSortTypes from './constants/sortTypes';
+import appContainer from './components/App/app.module';
 
-import './components/CardListItem/index.scss';
+const studyProject = angular.module('studyProject', [
+	appContainer,
+]);
 
-const studyProject = angular.module('studyProject', []);
+// studyProject.component('initComp', {
+// 	template: '<h1>hello</h1>',
+// });
 
-studyProject.controller('CardsFieldController', ($scope, $http) => {
-	$http.get('http://localhost:3000/')
-		.then((response) => {
-			$scope.cards = response.data;
-		}, (error) => {
-			console.log(error);
-		});
-	$scope.cardTypes = {
-		selectedCardType: availableCardTypes[0],
-		availableCardTypes,
-	};
-	$scope.sortTypes = {
-		selectedSortType: availableSortTypes[0],
-		availableSortTypes,
-	};
-});
+export default studyProject;
 
-Components(studyProject);
+
+// import createComponents from './components/index';
+// import availableCardTypes from './constants/cardTypes';
+// import availableSortTypes from './constants/sortTypes';
+
+// import './components/CardListItem/index.scss';
+
+// const studyProject = angular.module('studyProject', []);
+
+// studyProject.controller('CardsFieldController', ($scope, $http) => {
+// 	$http.get('http://localhost:3000/')
+// 		.then((response) => {
+// 			$scope.cards = response.data;
+// 		}, (error) => {
+// 			console.log(error);
+// 		});
+// 	$scope.cardTypes = {
+// 		selectedCardType: availableCardTypes[0],
+// 		availableCardTypes,
+// 	};
+// 	$scope.sortTypes = {
+// 		selectedSortType: availableSortTypes[0],
+// 		availableSortTypes,
+// 	};
+// });
+
+// createComponents(studyProject);
