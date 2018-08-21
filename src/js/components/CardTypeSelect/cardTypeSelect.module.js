@@ -1,9 +1,15 @@
 import angular from 'angular';
 
-const cardTypeSelect = angular.module('cardTypeSelect', []);
+import CardTypeController from './cardTypeSelect.controller';
+import CardTypeTemplate from './cardTypeSelect.html';
 
-cardTypeSelect.component('cardTypeSelect', {
-	template: '<h1> Card Type </h1>',
+export default angular.module('studyProject').component('cardTypeSelect', {
+	template: CardTypeTemplate,
+	controller: CardTypeController,
+	controllerAs: 'CardTypeCtrl',
+	bindings: {
+		types: '<',
+		selectedType: '<',
+		onChange: '&',
+	},
 });
-
-export default cardTypeSelect;

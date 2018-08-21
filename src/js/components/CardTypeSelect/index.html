@@ -1,9 +1,0 @@
-<div>
-    <form name="selectCardTypeForm">
-        <label for="cardTypeSelect">Select card type:</label>
-            <select name="cardTypeSelect" ng-model="cardTypes.selectedCardType">
-                <option ng-repeat="type in cardTypes.availableCardTypes" ng-value="type">{{type.name}}</option>
-            </select>
-    </form>
-    <p>Selected card type is {{cardTypes.selectedCardType.name}}</p><br/>
-</div>

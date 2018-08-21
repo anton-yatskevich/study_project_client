@@ -1,9 +1,0 @@
-<div>
-    <form name="selectSortTypeForm">
-        <label for="sortTypeSelect">Order by:</label>
-            <select name="sortTypeSelect" ng-model="sortTypes.selectedSortType">
-                <option ng-repeat="type in sortTypes.availableSortTypes" ng-value="type">{{type.name}}</option>
-            </select>
-    </form>
-    <p>Selected sort type is {{sortTypes.selectedSortType.name}}</p><br/>
-</div>

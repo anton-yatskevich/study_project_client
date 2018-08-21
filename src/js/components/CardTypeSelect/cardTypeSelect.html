@@ -1,0 +1,8 @@
+<label>Select card type:</label>
+<select 
+    ng-model="CardTypeCtrl.type"
+    ng-change="CardTypeCtrl.changeType()"
+>
+    <option ng-repeat="type in CardTypeCtrl.types" ng-value="type">{{type.name}}</option>
+</select>
+<p>Selected card type: {{CardTypeCtrl.type.name}}</p>

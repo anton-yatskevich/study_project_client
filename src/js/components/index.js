@@ -1,7 +1,9 @@
-import createCardTypeSelect from './CardTypeSelect/index';
-import createSortTypeSelect from './SortTypeSelect/index';
+import AppComponent from './App';
+import CardTypeSelectComponent from './CardTypeSelect';
+import SortTypeSelectComponent from './SortTypeSelect';
 
-export default (ngModule) => {
-	createCardTypeSelect(ngModule);
-	createSortTypeSelect(ngModule);
+export default {
+	AppComponent,
+	CardTypeSelectComponent,
+	SortTypeSelectComponent,
 };

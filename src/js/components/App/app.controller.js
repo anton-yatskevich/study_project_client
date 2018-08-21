@@ -4,14 +4,18 @@ import sortTypes from '../../constants/sortTypes';
 export default class {
 	constructor() {
 		this.cardTypes = cardTypes;
-		[this.cardType] = cardTypes;
-		[this.sortType] = sortTypes;
+		this.sortTypes = sortTypes;
 		this.balance = 10;
 		this.costInMonth = 3;
 	}
 
-	selectCardType(value) {
-		this.cardType = value;
+	$onInit() {
+		[this.cardType] = cardTypes;
+		[this.sortType] = sortTypes;
+	}
+
+	selectCardType(type) {
+		this.cardType = type;
 	}
 
 	selectSortType(value) {

@@ -1,16 +1,5 @@
-import angular from 'angular';
-import appContainer from './components/App/app.module';
-
-const studyProject = angular.module('studyProject', [
-	appContainer,
-]);
-
-// studyProject.component('initComp', {
-// 	template: '<h1>hello</h1>',
-// });
-
-export default studyProject;
-
+import './module';
+import './components';
 
 // import createComponents from './components/index';
 // import availableCardTypes from './constants/cardTypes';
