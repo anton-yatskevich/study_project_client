@@ -9,5 +9,7 @@ export default angular.module('studyProject').component('cardItem', {
 	controllerAs: 'CardItemCtrl',
 	bindings: {
 		cardList: '<',
+		cardType: '<',
+		sortType: '<',
 	},
 });
