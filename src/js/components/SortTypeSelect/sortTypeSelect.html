@@ -1,20 +1,6 @@
-<label>Order by:</label>
-    <select
-        ng-model="SortTypeCtrl.type"
-        ng-change="SortTypeCtrl.changeType()" 
-    >
+<div class="sort-type-select-wrapper">
+    <label>Order by:</label>
+    <select ng-model="SortTypeCtrl.type" ng-change="SortTypeCtrl.changeType()" >
         <option ng-repeat="type in SortTypeCtrl.types" ng-value="type">{{type.name}}</option>
     </select>
-<p>Selected sort type: {{SortTypeCtrl.type.name}}</p><br/>
-
-<!-- 
-
-
-<label>Select card type:</label>
-<select 
-    ng-model="CardTypeCtrl.type"
-    ng-change="CardTypeCtrl.changeType()"
->
-    <option ng-repeat="type in CardTypeCtrl.types" ng-value="type">{{type.name}}</option>
-</select>
-<p>Selected card type is: {{CardTypeCtrl.type.name}}</p> -->
+</div>

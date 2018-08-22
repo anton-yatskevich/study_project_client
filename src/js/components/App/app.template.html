@@ -1,11 +1,23 @@
-<card-type-select
-    types="AppCtrl.cardTypes"
-    selected-type="AppCtrl.cardType"
-    on-change="AppCtrl.selectCardType(type)"
-></card-type-select>
-<br>
-<sort-type-select
-    types="AppCtrl.sortTypes"
-    selected-type="AppCtrl.sortType"
-    on-change="AppCtrl.selectSortType(type)"
-></sort-type-select>
+<div class="app-cotainer">
+    <card-type-select
+        types="AppCtrl.cardTypes"
+        selected-type="AppCtrl.cardType"
+        on-change="AppCtrl.selectCardType(type)"
+    ></card-type-select>
+    <credit-calculator
+        balance="AppCtrl.balanceFee"
+        month="AppCtrl.costInMonth"  
+        on-update-month="AppCtrl.setCostInMonth(month)"
+        on-update-balance-fee="AppCtrl.setBalanceFee(balance)"
+    ></credit-calculator>
+    <sort-type-select
+        types="AppCtrl.sortTypes"
+        selected-type="AppCtrl.sortType"
+        on-change="AppCtrl.selectSortType(type)"
+    ></sort-type-select>
+    <div class="card-list">
+        <card-item
+            card-list="AppCtrl.cards"
+        ></card-item>
+    </div>
+</div>

@@ -2,16 +2,27 @@ import cardTypes from '../../constants/cardTypes';
 import sortTypes from '../../constants/sortTypes';
 
 export default class {
-	constructor() {
+	constructor($http) {
+		this.http = $http;
 		this.cardTypes = cardTypes;
 		this.sortTypes = sortTypes;
-		this.balance = 10;
+		[this.cardType] = cardTypes;
+		[this.sortType] = sortTypes;
+		this.balanceFee = 10;
 		this.costInMonth = 3;
 	}
 
 	$onInit() {
-		[this.cardType] = cardTypes;
-		[this.sortType] = sortTypes;
+		this.getAllCards();
+	}
+
+	getAllCards() {
+		this.http.get('http://localhost:3000/')
+			.then((response) => {
+				this.cards = response.data;
+			}, (error) => {
+				console.log(error);
+			});
 	}
 
 	selectCardType(type) {
@@ -22,11 +33,11 @@ export default class {
 		this.sortType = value;
 	}
 
-	selectBalance(value) {
-		this.balance = value;
+	setBalanceFee(value) {
+		this.balanceFee = value;
 	}
 
-	selectCostInMonth(value) {
+	setCostInMonth(value) {
 		this.costInMonth = value;
 	}
 }
