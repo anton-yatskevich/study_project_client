@@ -1,4 +1,4 @@
-<div class="card-list-item" ng-repeat="card in CardItemCtrl.cardList | filter: { type: CardItemCtrl.cardType.name} | orderBy:CardItemCtrl.sortType.sortField">
+<div class="card-list-item" ng-repeat="card in CardItemCtrl.cardList | filter: { type: CardItemCtrl.cardType.value} | orderBy:CardItemCtrl.sortType.sortField">
     <div class="card-image">
         <img ng-src="{{ card.image }}" alt="{{ card.name }}">
     </div>
