@@ -8,8 +8,6 @@ export default angular.module('studyProject').component('cardItem', {
 	controller: CardItemController,
 	controllerAs: 'CardItemCtrl',
 	bindings: {
-		cardList: '<',
-		cardType: '<',
-		sortType: '<',
+		card: '<',
 	},
 });

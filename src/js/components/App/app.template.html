@@ -21,10 +21,6 @@
         on-change="AppCtrl.selectSortType(type)"
     ></sort-type-select>
     <div class="card-list">
-        <card-item
-            card-list="AppCtrl.cards"
-            card-type="AppCtrl.cardType"
-            sort-type="AppCtrl.sortType"
-        ></card-item>
+        <card-item ng-repeat="card in AppCtrl.cards | filter: {type: AppCtrl.cardType.value} | orderBy:AppCtrl.sortType.sortField" card="card"></card-item>
     </div>
 </div>
