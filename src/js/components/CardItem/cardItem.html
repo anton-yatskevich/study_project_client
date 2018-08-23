@@ -1,50 +1,57 @@
-<div class="card-list-item" ng-repeat="card in CardItemCtrl.cardList | filter: { type: CardItemCtrl.cardType.value} | orderBy:CardItemCtrl.sortType.sortField">
-    <div class="card-image">
-        <img ng-src="{{ card.image }}" alt="{{ card.name }}">
+<div class="card-list-item" ng-repeat="card in CardItemCtrl.cardList | filter: {type: CardItemCtrl.cardType.value} | orderBy:CardItemCtrl.sortType.sortField">
+    <div class="card-item-main">
+        <div class="card-image">
+            <img ng-src="{{ card.image }}" alt="{{ card.name }}">
+        </div>
+        <div class="card-item-body">
+            <div class="card-item-header">
+                <h2>
+                    {{card.name}}
+                </h2>
+                <p>
+                    Type: {{card.type}}
+                </p>
+            </div>
+            <div class="card-item-info">
+                <div>
+                    <h3>
+                        BalanceFee
+                    </h3>
+                    <p>
+                        amount: {{card.repayments.balanceFee.amount}}
+                    </p>
+                    <p>
+                        month: {{card.repayments.balanceFee.month}}
+                    </p>
+                </div>
+                <div>
+                    <h3>
+                        Cost To You
+                    </h3>
+                    <p>
+                        amount: {{card.repayments.costToYou.amount}}
+                    </p>
+                    <p>
+                        month: {{card.repayments.costToYou.month}}
+                    </p>    
+                </div>
+                <div>
+                    <h3>
+                        Representative Exmp.
+                    </h3>
+                    <p>
+                        spend: {{card.representativeExmp.spend}}
+                    </p>
+                    <p>
+                        purchase: {{card.representativeExmp.purchase}}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card-item-body">
-        <div class="card-item-header">
-            <h2>
-                {{card.name}}
-            </h2>
-            <p>
-                Type: {{card.type}}
-            </p>
-        </div>
-        <div class="card-item-main">
-            <div>
-                <h3>
-                    BalanceFee
-                </h3>
-                <p>
-                    amount: {{card.repayments.balanceFee.amount}}
-                </p>
-                <p>
-                    month: {{card.repayments.balanceFee.month}}
-                </p>
-            </div>
-            <div>
-                <h3>
-                    Cost To You
-                </h3>
-                <p>
-                    amount: {{card.repayments.costToYou.amount}}
-                </p>
-                <p>
-                    month: {{card.repayments.costToYou.month}}
-                </p>    
-            </div>
-            <div>
-                <h3>
-                    Representative Exmp.
-                </h3>
-                <p>
-                    spend: {{card.representativeExmp.spend}}
-                </p>
-                <p>
-                    purchase: {{card.representativeExmp.purchase}}
-                </p>
-            </div>
-        </div>
+    <div class="card-item-footer">
+        <p>
+            Representative Example: you can spend {{card.representativeExmp.spend | currency:"£":0}} within  {{card.representativeExmp.purchase | currency:"£":0}} purchase
+        </p>
     </div>
 </div>
