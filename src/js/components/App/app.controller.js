@@ -8,7 +8,7 @@ export default class {
 		this.sortTypes = sortTypes;
 		[this.cardType] = cardTypes;
 		[this.sortType] = sortTypes;
-		this.balanceFee = 10;
+		this.costAmount = 100;
 		this.costInMonth = 3;
 	}
 
@@ -34,7 +34,7 @@ export default class {
 	}
 
 	setBalanceFee(value) {
-		this.balanceFee = value;
+		this.costAmount = value;
 	}
 
 	setCostInMonth(value) {

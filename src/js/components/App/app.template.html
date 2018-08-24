@@ -4,13 +4,14 @@
     </a>
 </header>
 <div class="app-cotainer">
+    <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
     <card-type-select
         types="AppCtrl.cardTypes"
         selected-type="AppCtrl.cardType"
         on-change="AppCtrl.selectCardType(type)"
     ></card-type-select>
     <credit-calculator
-        balance="AppCtrl.balanceFee"
+        balance="AppCtrl.costAmount"
         month="AppCtrl.costInMonth"  
         on-update-month="AppCtrl.setCostInMonth(month)"
         on-update-balance-fee="AppCtrl.setBalanceFee(balance)"
@@ -21,6 +22,6 @@
         on-change="AppCtrl.selectSortType(type)"
     ></sort-type-select>
     <div class="card-list">
-        <card-item ng-repeat="card in AppCtrl.cards | filter: {type: AppCtrl.cardType.value} | orderBy:AppCtrl.sortType.sortField" card="card"></card-item>
+        <card-item ng-repeat="card in AppCtrl.cards | cardType:AppCtrl.cardType | costInMonth:AppCtrl.costInMonth | costAmount:AppCtrl.costAmount | orderBy:AppCtrl.sortType.sortField" card="card"></card-item>
     </div>
 </div>
