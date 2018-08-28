@@ -5,23 +5,8 @@
 </header>
 <div class="app-cotainer">
     <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
-    <card-type-select
-        types="AppCtrl.cardTypes"
-        selected-type="AppCtrl.cardType"
-        on-change="AppCtrl.selectCardType(type)"
-    ></card-type-select>
-    <credit-calculator
-        balance="AppCtrl.costAmount"
-        month="AppCtrl.costInMonth"  
-        on-update-month="AppCtrl.setCostInMonth(month)"
-        on-update-balance-fee="AppCtrl.setBalanceFee(balance)"
-    ></credit-calculator>
-    <sort-type-select
-        types="AppCtrl.sortTypes"
-        selected-type="AppCtrl.sortType"
-        on-change="AppCtrl.selectSortType(type)"
-    ></sort-type-select>
-    <div class="card-list">
-        <card-item ng-repeat="card in AppCtrl.cards | cardType:AppCtrl.cardType | costInMonth:AppCtrl.costInMonth | costAmount:AppCtrl.costAmount | orderBy:AppCtrl.sortType.sortField" card="card"></card-item>
-    </div>
+    <card-type-select></card-type-select>
+    <credit-calculator></credit-calculator>
+    <sort-type-select></sort-type-select>
+    <card-list></card-list>
 </div>

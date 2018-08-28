@@ -1,4 +1,4 @@
-export default [
+const SORT_TYPES = [
 	{
 		name: 'A-Z',
 		sortField: 'name',
@@ -30,3 +30,5 @@ export default [
 		number: true,
 	},
 ];
+
+export default SORT_TYPES;

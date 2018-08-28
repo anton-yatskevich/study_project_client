@@ -1,9 +1,27 @@
-export default class {
+import sortTypes from '../../constants/SORT_TYPES';
+import { setSortType } from '../../actions/CardFiltersActions';
+
+const mapStateToThis = (state) => {
+	const { sortType } = state.cardFilters;
+	return {
+		sortType,
+	};
+};
+
+class SortTypeSelectController {
+	constructor($ngRedux, $scope) {
+		const unsubscribe = $ngRedux.connect(mapStateToThis, { setSortType })(this);
+		$scope.$on('$destroy', unsubscribe);
+		this.sortTypes = sortTypes;
+	}
+
 	$onInit() {
-		this.type = this.selectedType;
+		this.type = this.sortType;
 	}
 
 	changeType() {
-		this.onChange({ type: this.type });
+		this.setSortType(this.type);
 	}
 }
+
+export default SortTypeSelectController;

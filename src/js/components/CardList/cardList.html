@@ -1,0 +1,10 @@
+<div class="card-list">
+    <card-item 
+        ng-repeat="cardItem in CardListCtrl.cards | 
+            cardType:CardListCtrl.cardType | 
+            costInMonth:CardListCtrl.costInMonth | 
+            costAmount:CardListCtrl.costAmount | 
+            orderBy:CardListCtrl.sortType" 
+        card = "cardItem">
+    </card-item>
+</div>

@@ -1,4 +1,4 @@
-export default [
+const CARD_TYPES = [
 	{
 		name: 'Balance transfer',
 		value: 'Balance transfer',
@@ -16,3 +16,5 @@ export default [
 		value: '',
 	},
 ];
+
+export default CARD_TYPES;
