@@ -3,7 +3,11 @@
         <img src="https://img.cheapair.com/uploads/2016/04/CNNMoney.png" alt="logo">
     </a>
 </header>
-<div class="app-cotainer">
+<!-- <div ng-if="AppCtrl.isLoading" class="spinner"><div class="lds-ripple"><div></div><div></div></div></div> -->
+<div ng-if="AppCtrl.isLoading" class="spinner-wrapper">
+    <div class="spinner"></div>
+</div>
+<div ng-if="!AppCtrl.isLoading" class="app-cotainer">
     <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
     <card-type-select></card-type-select>
     <credit-calculator></credit-calculator>

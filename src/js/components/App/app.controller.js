@@ -1,11 +1,12 @@
 import API_URL from '../../constants/API_URL';
 
 const mapStateToThis = (state) => {
-	const { cards } = state.cards;
+	const { cards, isLoading } = state.cards;
 	const { cardType } = state.cardFilters;
 	return {
 		cards,
 		cardType,
+		isLoading,
 	};
 };
 
