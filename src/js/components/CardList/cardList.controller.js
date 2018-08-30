@@ -12,8 +12,7 @@ const mapStateToThis = (state) => {
 };
 
 class CardListController {
-	constructor($ngRedux, $scope, $http) {
-		this.http = $http;
+	constructor($ngRedux, $scope) {
 		const unsubscribe = $ngRedux.connect(mapStateToThis)(this);
 		$scope.$on('$destroy', unsubscribe);
 	}
