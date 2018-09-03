@@ -36,22 +36,16 @@ describe('card type filter', () => {
 	});
 });
 
-describe('card controller', () => {
-	let $componentController;
-	let scope;
+describe('aComponent', () => {
+	let ctrl;
 
-	beforeEach(() => {
-		angular.mock.module('studyProject');
-	});
-
-	beforeEach(inject(( $rootScope, _$componentController_) => {
-		scope = $rootScope.$new();
-		$componentController = _$componentController_;
+	beforeEach(angular.mock.module('studyProject'));
+	
+	beforeEach(inject(($componentController) => {
+		ctrl = $componentController('nameFormatter');
 	}));
 
-	it('name', () => {
-		const controller = $componentController('cardItem', { $scope: scope }, null);
-		controller.name = 'John';
-		expect(controller.getFormattedName()).toEqual('John');
-	});
+    it('should instantiate the ctrl', () => {
+        expect(ctrl).toBeDefined();
+    });
 });

@@ -24,7 +24,8 @@ const studyProject = angular.module('studyProject', [ngRedux])
 	.controller('nameFormatterCtrl', NameFormatter)
 	.component('nameFormatter', {
 		template: '<span></span>',
-		controller: 'nameFormatterCtrl',
+		controller: NameFormatter,
+		controllerAs: 'nameFormatterCtrl',
 	});
 
 export default studyProject;
