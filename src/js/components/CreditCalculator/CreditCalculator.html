@@ -3,19 +3,19 @@
     <div>
         <label>Cost to you amount:</label>
         <input 
-            ng-model="CreditCalculatorCtrl.balance"
+            ng-model="CreditCalculatorCtrl.balanceFee"
             ng-change="CreditCalculatorCtrl.changeBalanceFee()"
             type="number" 
-            value={{CreditCalculatorCtrl.balance}}
+            value={{CreditCalculatorCtrl.balanceFee}}
         >
     </div>
     <div>
         <label>Cost to you in month:</label>
         <input 
-            ng-model="CreditCalculatorCtrl.month"
+            ng-model="CreditCalculatorCtrl.costInMonth"
             ng-change="CreditCalculatorCtrl.changeCostInMonth()"
             type="number" 
-            value={{CreditCalculatorCtrl.month}}
+            value={{CreditCalculatorCtrl.costInMonth}}
         >
     </div>
 </div>

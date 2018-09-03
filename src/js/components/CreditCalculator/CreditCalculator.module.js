@@ -8,4 +8,10 @@ export default angular.module('studyProject')
 		template: CreditCalculatorTemplate,
 		controller: CreditCalculatorController,
 		controllerAs: 'CreditCalculatorCtrl',
+		bindings: {
+			balance: '<',
+			month: '<',
+			onUpdateMonth: '&',
+			onUpdateBalanceFee: '&',
+		},
 	});

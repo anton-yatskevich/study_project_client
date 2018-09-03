@@ -7,4 +7,9 @@ export default angular.module('studyProject').component('cardTypeSelect', {
 	template: CardTypeTemplate,
 	controller: CardTypeController,
 	controllerAs: 'CardTypeCtrl',
+	bindings: {
+		types: '<',
+		selectedType: '<',
+		onChange: '&',
+	},
 });

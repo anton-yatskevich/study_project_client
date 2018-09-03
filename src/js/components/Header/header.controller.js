@@ -1,1 +1,3 @@
-export default class {}
+class HeaderController {}
+
+export default HeaderController;
