@@ -10,14 +10,17 @@ module.exports = (config) => {
 			'src/js/**/**/*.js',
 		],
 
+		reporters: ['progress', 'coverage'],
+
 		preprocessors: {
-			'src/js/*.js': ['webpack'],
-			'src/js/**/*.js': ['webpack'],
-			'src/js/**/**/*.js': ['webpack'],
+			'**/src/js/*.js': ['webpack', 'coverage'],
+			'**/src/js/**/*.js': ['webpack', 'coverage'],
+			'**/src/js/**/**/*.js': ['webpack', 'coverage'],
 		},
 
 		plugins: [
 			'karma-webpack',
+			'karma-coverage',
 			'karma-jasmine',
 			'karma-phantomjs-launcher',
 			'karma-chrome-launcher',
@@ -43,6 +46,11 @@ module.exports = (config) => {
 		webpackMiddleware: {
 			noInfo: true,
 			stats: 'errors-only',
+		},
+
+		coverageReporter: {
+			type: 'text',
+			// dir: 'coverage/',
 		},
 	});
 };
