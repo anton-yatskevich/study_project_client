@@ -23,7 +23,11 @@ module.exports = (config) => {
 			'karma-chrome-launcher',
 		],
 
+		port: 9876,
+
 		colors: true,
+
+		logLevel: config.LOG_INFO,
 
 		autoWatch: true,
 

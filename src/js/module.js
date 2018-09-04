@@ -23,9 +23,12 @@ const studyProject = angular.module('studyProject', [ngRedux])
 	.service('FetchCards', FetchCardsService)
 	.controller('nameFormatterCtrl', NameFormatter)
 	.component('nameFormatter', {
-		template: '<span></span>',
+		template: `<span>{{nameFormatterCtrl.getFormattedName()}}</span>`,
 		controller: NameFormatter,
 		controllerAs: 'nameFormatterCtrl',
+		bindings: {
+			name: '=',
+		},
 	});
 
 export default studyProject;
