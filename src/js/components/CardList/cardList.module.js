@@ -14,5 +14,6 @@ export default angular.module('studyProject')
 			cardType: '<',
 			sortType: '<',
 			cards: '<',
+			device: '<',
 		},
 	});

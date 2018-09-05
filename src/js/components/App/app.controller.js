@@ -1,7 +1,7 @@
 import angular from 'angular';
 import API_URL from '../../constants/API_URL';
 import * as CardFilterActions from '../../actions/CardFiltersActions';
-import * as DeviceTypeAction from '../../actions/DeviceTypeActions';
+import DeviceTypeAction from '../../actions/DeviceTypeActions';
 import CARD_TYPES from '../../constants/CARD_TYPES';
 import SORT_TYPES from '../../constants/SORT_TYPES';
 
@@ -11,7 +11,7 @@ const mapStateToThis = (state) => {
 	const {
 		cardType, costAmount, costInMonth, sortType,
 	} = state.cardFilters;
-	const { minWidth, maxWidth } = state.device;
+	const { minWidth, maxWidth, deviceName } = state.device;
 	return {
 		cards,
 		costAmount,
@@ -21,6 +21,7 @@ const mapStateToThis = (state) => {
 		isLoading,
 		minWidth,
 		maxWidth,
+		deviceName,
 	};
 };
 
@@ -46,7 +47,7 @@ class AppController {
 
 	onResize() {
 		const width = this.window.innerWidth;
-		if (width < this.minWidth || width > this.maxWidth) {
+		if (width < this.minWidth || width >= this.maxWidth) {
 			this.setDeviceType(width);
 		}
 	}
