@@ -1,5 +1,5 @@
-import './module';
-import './filters/cardTypeFilter';
-import './filters/costInMonthFilter';
-import './filters/costAmountFilter';
-import './components';
+import './module.js';
+import './filters/cardTypeFilter.js';
+import './filters/costInMonthFilter.js';
+import './filters/costAmountFilter.js';
+import './components/index.js';

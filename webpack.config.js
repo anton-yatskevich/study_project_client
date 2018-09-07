@@ -1,48 +1,40 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+	mode: 'development',
 	entry: './src/js/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.join(__dirname, 'dist/'),
 		filename: 'bundle.js',
-		publicPath: '/dist',
 	},
 	module: {
-		rules: [
+		loaders: [
 			{
 				test: /\.js$/,
-				use: {
-					loader: 'babel-loader',
-					options: { presets: ['env'] },
-				},
+				exclude: /node_modules/,
+				loader: 'babel',
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
 			},
 			{
 				test: /\.scss$/,
-				use: [
-					{
-						loader: 'style-loader',
-					},
-					{
-						loader: 'css-loader',
-					},
-					{
-						loader: 'sass-loader',
-					},
-				],
+				loaders: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.html$/,
-				loader: 'html-loader',
+				loader: 'raw-loader',
 			},
 		],
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-			template: './src/index.html',
-			filename: './index.html',
-			inject: 'head',
+			inject: true,
+			template: 'src/index.html',
+			filename: 'index.html',
 		}),
 	],
-	devtool: 'source-map',
 };
