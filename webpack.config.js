@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
+	devtool: 'inline-source-map',
 	entry: './src/js/index.js',
 	output: {
 		path: path.join(__dirname, 'dist/'),
@@ -22,6 +23,13 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: 'raw-loader',
+			},
+		],
+		postLoaders: [
+			{
+				test: /\.js$/,
+				exclude: [/node_modules/, /\.spec\.js/],
+				loader: 'istanbul-instrumenter',
 			},
 		],
 	},

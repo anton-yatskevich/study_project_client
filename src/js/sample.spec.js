@@ -23,8 +23,8 @@ describe('Component: appContainer', () => {
 
 	it('should display name', () => {
 		ctrl = element.controller('appContainer');
-		scope.$digest();
-		console.log(element);
+		// scope.$digest();
+		// console.log(ctrl);
 		expect(ctrl).toBeDefined();
 	});
 });
