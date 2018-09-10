@@ -1,9 +1,3 @@
-describe('Sample test', () => {
-	it('Condition is true', () => {
-		expect('AngularJS').toBe('AngularJS');
-	});
-});
-
 describe('Component: appContainer', () => {
 	let $compile;
 	let scope;
@@ -21,10 +15,8 @@ describe('Component: appContainer', () => {
 		element = $compile(element)(scope);
 	}));
 
-	it('should display name', () => {
+	it('should controller exist', () => {
 		ctrl = element.controller('appContainer');
-		// scope.$digest();
-		// console.log(ctrl);
 		expect(ctrl).toBeDefined();
 	});
 });
