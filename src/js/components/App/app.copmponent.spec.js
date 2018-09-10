@@ -19,4 +19,9 @@ describe('Component: appContainer', () => {
 		ctrl = element.controller('appContainer');
 		expect(ctrl).toBeDefined();
 	});
+
+	it('should call method on resize', () => {
+		scope.$digest();
+		expect(ctrl).toBeDefined();
+	});
 });
