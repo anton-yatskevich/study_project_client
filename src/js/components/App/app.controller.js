@@ -51,22 +51,6 @@ class AppController {
 			this.setDeviceType(width);
 		}
 	}
-
-	setCardType(type) {
-		this.setCardType(type);
-	}
-
-	setSortType(value) {
-		this.setSortType(value);
-	}
-
-	setBalanceFee(value) {
-		this.setCostAmountFilter(value);
-	}
-
-	setCostInMonth(value) {
-		this.setCostInMonth(value);
-	}
 }
 
 export default AppController;
