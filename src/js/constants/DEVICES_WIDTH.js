@@ -1,7 +1,7 @@
 const DEVICES_WIDTH = [
 	{
 		deviceName: 'mobile',
-		minWidth: 320,
+		minWidth: -Infinity,
 		maxWidth: 768,
 	},
 	{

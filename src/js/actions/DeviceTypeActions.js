@@ -1,7 +1,7 @@
 import { SET_DEVICE_TYPE } from '../constants/ActionTypes';
 import DEVICES_WIDTH from '../constants/DEVICES_WIDTH';
 
-const setDeviceType = (value) => {
+const selectDevice = (value) => {
 	let i = 0;
 	const { length } = DEVICES_WIDTH;
 	let device = DEVICES_WIDTH[0];
@@ -16,5 +16,12 @@ const setDeviceType = (value) => {
 		payload: device,
 	};
 };
+
+const setDeviceType = value => ((dispatch, getState) => {
+	const { minWidth, maxWidth } = getState().device;
+	if (value < minWidth || value >= maxWidth) {
+		dispatch(selectDevice(value));
+	}
+});
 
 export default { setDeviceType };
