@@ -10,18 +10,10 @@ body {
     
 }
 
-header {
-    height: 60px;
-    background-color: #fff;
-    img {
-        height: 100%;
-    }
-}
-
 .app-cotainer {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 20px;
 }
 
 .card-list {

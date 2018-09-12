@@ -1,6 +1,6 @@
 <div class="sort-type-select-wrapper">
     <label>Order by:</label>
     <select ng-model="SortTypeCtrl.type" ng-change="SortTypeCtrl.changeType()" >
-        <option ng-repeat="type in SortTypeCtrl.sortTypes" ng-value="type">{{type.name}}</option>
+        <option ng-repeat="type in SortTypeCtrl.types" ng-value="type">{{type.name}}</option>
     </select>
 </div>

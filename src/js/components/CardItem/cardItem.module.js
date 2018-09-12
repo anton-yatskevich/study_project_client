@@ -10,5 +10,6 @@ export default angular.module('studyProject')
 		controllerAs: 'CardItemCtrl',
 		bindings: {
 			card: '<',
+			device: '<',
 		},
 	});

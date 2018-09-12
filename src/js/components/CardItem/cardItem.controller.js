@@ -1,9 +1,15 @@
-export default class {
-    constructor() {
-        this.name = 'app';
-    }
+class CardItemController {
+	isTablet() {
+		return this.device === 'tablet';
+	}
 
-	getFormattedName() {
-		return this.name;
+	isMobile() {
+		return this.device === 'mobile';
+	}
+
+	isDesktop() {
+		return this.device === 'desktop';
 	}
 }
+
+export default CardItemController;

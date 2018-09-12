@@ -1,15 +1,30 @@
-<header>
-    <a href="#">
-        <img src="https://img.cheapair.com/uploads/2016/04/CNNMoney.png" alt="logo">
-    </a>
-</header>
 <div ng-if="AppCtrl.isLoading" class="spinner-wrapper">
     <div class="spinner"></div>
 </div>
 <div ng-if="!AppCtrl.isLoading" class="app-cotainer">
     <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
-    <card-type-select></card-type-select>
-    <credit-calculator></credit-calculator>
-    <sort-type-select></sort-type-select>
-    <card-list></card-list>
+    <card-type-select
+        types="AppCtrl.cardTypes"
+        selected-type="AppCtrl.cardType"
+        on-change="AppCtrl.setCardType(type)" >
+    </card-type-select>
+    <credit-calculator
+        balance="AppCtrl.costAmount"
+        month="AppCtrl.costInMonth"  
+        on-update-month="AppCtrl.setCostInMonth(month)"
+        on-update-balance-fee="AppCtrl.setBalanceFee(balance)" >
+    </credit-calculator>
+    <sort-type-select
+        types="AppCtrl.sortTypes"
+        selected-type="AppCtrl.sortType"
+        on-change="AppCtrl.setSortType(type)" >
+    </sort-type-select>
+    <card-list
+        cards="AppCtrl.cards"
+        sort-type="AppCtrl.sortType"
+        card-type="AppCtrl.cardType"
+        cost-amount="AppCtrl.costAmount"
+        cost-in-month="AppCtrl.costInMonth"
+        device="AppCtrl.deviceName" >
+    </card-list>
 </div>

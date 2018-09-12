@@ -1,24 +1,30 @@
 <div class="card-list-item">
-    <div class="card-item-main">
-        <div class="card-image">
-            <img ng-src="{{ CardItemCtrl.card.image }}" alt="{{ CardItemCtrl.card.name }}">
+    <div class="card-item-main" ng-class="{'card-item-main-mobile': CardItemCtrl.isMobile()}">
+        <div ng-class="(CardItemCtrl.isMobile()) ? 'card-image-mobile' : 'card-image'">
+            <img ng-src="{{CardItemCtrl.card.image}}" alt="{{CardItemCtrl.card.name}}">
         </div>
         <div class="card-item-body">
-            <div class="card-item-header">
-                <h2>
-                    {{CardItemCtrl.card.name}}
-                </h2>
-                <p>
-                    Type: {{CardItemCtrl.card.type}}
-                </p>
+            <div ng-class="{'card-item-body-tablet': CardItemCtrl.isTablet()}" class="card-item-header">
+                <div>
+                    <h2>
+                        {{CardItemCtrl.card.name}}
+                    </h2>
+                    <p>
+                        Type: {{CardItemCtrl.card.type}}
+                    </p>
+                </div>
+                <div ng-if="CardItemCtrl.isTablet()" class="card-item-links">
+                        <a class="button" href="#">Go to site</a>
+                        <a href="#">Full details...</a>
+                </div>
             </div>
-            <div class="card-item-info">
+            <div ng-if="!CardItemCtrl.isMobile()" class="card-item-info">
                 <div>
                     <h3>
                         BalanceFee
                     </h3>
                     <p>
-                        amount: {{CardItemCtrl.card.repayments.balanceFee.amount}}
+                        amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
                     </p>
                     <p>
                         month: {{CardItemCtrl.card.repayments.balanceFee.month}}
@@ -29,17 +35,45 @@
                         Cost To You
                     </h3>
                     <p>
-                        amount: {{CardItemCtrl.card.repayments.costToYou.amount}}
+                        amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}
                     </p>
                     <p>
                         month: {{CardItemCtrl.card.repayments.costToYou.month}}
                     </p>    
                 </div>
-                <div class="card-item-links">
+                <div ng-if="CardItemCtrl.isDesktop()" class="card-item-links">
                     <a class="button" href="#">Go to site</a>
                     <a href="#">Full details...</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div ng-if="CardItemCtrl.isMobile()" class="card-item-info-mobile">
+        <div class="card-item-links">
+            <a href="#">Full details...</a>
+            <a class="button" href="#">Go to site</a>
+        </div>
+        <div>
+            <h3>
+                BalanceFee
+            </h3>
+            <p>
+                amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
+            </p>
+            <p>
+                month: {{CardItemCtrl.card.repayments.balanceFee.month}}
+            </p>
+        </div>
+        <div>
+            <h3>
+                Cost To You
+            </h3>
+            <p>
+                amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}
+            </p>
+            <p>
+                month: {{CardItemCtrl.card.repayments.costToYou.month}}
+            </p>    
         </div>
     </div>
     <div class="card-item-footer">

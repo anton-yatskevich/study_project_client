@@ -8,4 +8,12 @@ export default angular.module('studyProject')
 		template: CardListTemplate,
 		controller: CardListController,
 		controllerAs: 'CardListCtrl',
+		bindings: {
+			costInMonth: '<',
+			costAmount: '<',
+			cardType: '<',
+			sortType: '<',
+			cards: '<',
+			device: '<',
+		},
 	});

@@ -8,4 +8,9 @@ export default angular.module('studyProject')
 		template: SortTypeTemplate,
 		controller: SortTypeController,
 		controllerAs: 'SortTypeCtrl',
+		bindings: {
+			types: '<',
+			selectedType: '<',
+			onChange: '&',
+		},
 	});
