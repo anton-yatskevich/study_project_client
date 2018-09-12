@@ -11,7 +11,7 @@ const mapStateToThis = (state) => {
 	const {
 		cardType, costAmount, costInMonth, sortType,
 	} = state.cardFilters;
-	const { minWidth, maxWidth, deviceName } = state.device;
+	const { deviceName } = state.device;
 	return {
 		cards,
 		costAmount,
@@ -19,8 +19,6 @@ const mapStateToThis = (state) => {
 		sortType,
 		cardType,
 		isLoading,
-		minWidth,
-		maxWidth,
 		deviceName,
 	};
 };
@@ -41,15 +39,6 @@ class AppController {
 
 	$onInit() {
 		this.$ngRedux.dispatch(this.FetchService.fetchCards(API_URL));
-		this.setDeviceType(this.window.innerWidth);
-		angular.element(this.window).on('resize', () => this.onResize());
-	}
-
-	onResize() {
-		const width = this.window.innerWidth;
-		if (width < this.minWidth || width >= this.maxWidth) {
-			this.setDeviceType(width);
-		}
 	}
 }
 

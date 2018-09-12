@@ -1,7 +1,7 @@
 <div ng-if="AppCtrl.isLoading" class="spinner-wrapper">
     <div class="spinner"></div>
 </div>
-<div ng-if="!AppCtrl.isLoading" class="app-cotainer">
+<div ng-if="!AppCtrl.isLoading" class="app-cotainer" resize="AppCtrl.setDeviceType(width)">
     <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
     <card-type-select
         types="AppCtrl.cardTypes"
