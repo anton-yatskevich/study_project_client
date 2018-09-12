@@ -1,56 +1,50 @@
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config');
 
 module.exports = (config) => {
 	config.set({
+		basePath: '',
+		frameworks: ['jasmine'],
+
 		files: [
 			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'src/js/*.js',
-			'src/js/**/*.js',
-			'src/js/**/**/*.js',
-		],
+			'node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
 
-		reporters: ['progress', 'coverage'],
+			'src/js/index.js',
+			'src/js/index.spec.js',
+		],
 
 		preprocessors: {
-			'**/src/js/*.js': ['webpack', 'coverage'],
-			'**/src/js/**/*.js': ['webpack', 'coverage'],
-			'**/src/js/**/**/*.js': ['webpack', 'coverage'],
+			'src/js/index.js': ['webpack', 'sourcemap'],
+			'src/js/index.spec.js': ['webpack'],
 		},
 
-		plugins: [
-			'karma-webpack',
-			'karma-coverage',
-			'karma-jasmine',
-			'karma-phantomjs-launcher',
-			'karma-chrome-launcher',
-		],
-
-		port: 9876,
-
-		colors: true,
-
-		logLevel: config.LOG_INFO,
-
-		autoWatch: true,
-
-		browsers: [
-			'PhantomJS',
-			'Chrome',
-		],
-
-		frameworks: ['jasmine'],
-
 		webpack: webpackConfig,
-
-		webpackMiddleware: {
+		webpackMiddlewnare: {
 			noInfo: true,
 			stats: 'errors-only',
 		},
 
+		plugins: [
+			'karma-webpack',
+			'karma-jasmine',
+			'karma-coverage',
+			'istanbul-instrumenter-loader',
+			'karma-phantomjs-launcher',
+			'karma-sourcemap-loader',
+		],
+
+		reporters: ['progress', 'coverage'],
+		port: 9876,
+		colors: true,
+		logLevel: config.LOG_INFO,
+		autoWatch: true,
+		browsers: ['PhantomJS'],
+		singleRun: false,
+		concurrency: Infinity,
 		coverageReporter: {
-			type: 'text',
-			// dir: 'coverage/',
+			dir: 'coverage',
+			type: 'html',
 		},
 	});
 };
