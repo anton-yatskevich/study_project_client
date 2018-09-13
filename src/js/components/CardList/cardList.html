@@ -1,9 +1,7 @@
 <div class="card-list">
     <card-item 
         ng-repeat="cardItem in CardListCtrl.cards | 
-            cardType:CardListCtrl.cardType | 
-            costInMonth:CardListCtrl.costInMonth | 
-            costAmount:CardListCtrl.costAmount | 
+            cardType:CardListCtrl.cardType |
             orderBy:CardListCtrl.sortType.sortField" 
         card="cardItem"
         device="CardListCtrl.device" >

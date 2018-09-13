@@ -8,12 +8,6 @@
         selected-type="AppCtrl.cardType"
         on-change="AppCtrl.setCardType(type)" >
     </card-type-select>
-    <credit-calculator
-        balance="AppCtrl.costAmount"
-        month="AppCtrl.costInMonth"  
-        on-update-month="AppCtrl.setCostInMonth(month)"
-        on-update-balance-fee="AppCtrl.setCostAmountFilter(balance)" >
-    </credit-calculator>
     <sort-type-select
         types="AppCtrl.sortTypes"
         selected-type="AppCtrl.sortType"

@@ -9,13 +9,11 @@ import SORT_TYPES from '../../constants/SORT_TYPES';
 const mapStateToThis = (state) => {
 	const { cards, isLoading } = state.cards;
 	const {
-		cardType, costAmount, costInMonth, sortType,
+		cardType, sortType,
 	} = state.cardFilters;
 	const { deviceName } = state.device;
 	return {
 		cards,
-		costAmount,
-		costInMonth,
 		sortType,
 		cardType,
 		isLoading,
