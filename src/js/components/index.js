@@ -5,6 +5,7 @@ import SortTypeSelectComponent from './SortTypeSelect';
 import CardListComponent from './CardList';
 import CardItemComponent from './CardItem';
 import Notification from './Notification';
+import ModalWindow from './ModalWindow';
 
 export default {
 	AppComponent,
@@ -14,4 +15,5 @@ export default {
 	CardListComponent,
 	CardItemComponent,
 	Notification,
+	ModalWindow,
 };

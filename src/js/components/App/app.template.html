@@ -1,7 +1,7 @@
 <div ng-if="AppCtrl.isLoading" class="spinner-wrapper">
     <div class="spinner"></div>
 </div>
-<div ng-if="!AppCtrl.isLoading" class="app-cotainer" resize="AppCtrl.setDeviceType(width)">
+<div ng-if="!AppCtrl.isLoading && !AppCtrl.isVisibleForm" class="app-cotainer" resize="AppCtrl.setDeviceType(width)">
     <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
     <card-type-select
         types="AppCtrl.cardTypes"
@@ -26,3 +26,12 @@
         device="AppCtrl.deviceName" >
     </card-list>
 </div>
+<modal-window 
+    ng-if="AppCtrl.isVisibleForm"
+    close-modal-window="AppCtrl.showModalWindow(false)" >
+    <card-type-select
+        types="AppCtrl.cardTypes"
+        selected-type="AppCtrl.cardType"
+        on-change="AppCtrl.setCardType(type)" >
+    </card-type-select>
+</modal-window>

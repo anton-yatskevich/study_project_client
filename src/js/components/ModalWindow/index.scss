@@ -1,0 +1,26 @@
+.modal-window-container {
+    min-height: 100vh;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.692);
+    padding: 50px;
+
+    .close-button {
+        position: absolute;
+        right: 20px;
+        top: 10px; 
+        transform: rotate(45deg);
+
+        a {     
+            padding: 5px;            
+            margin: 0;
+            font-size: 50px;
+            font-weight: normal;
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
