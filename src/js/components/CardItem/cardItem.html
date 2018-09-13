@@ -20,26 +20,41 @@
             </div>
             <div ng-if="!CardItemCtrl.isMobile()" class="card-item-info">
                 <div>
+                    <p>
+                        {{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
+                    </p>
+                    <p>
+                        {{CardItemCtrl.card.repayments.actualFee.monthsDuration}} month
+                    </p>
+                    <p>
+                        then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
+                    </p>
+                </div>
+                <div>
                     <h3>
                         BalanceFee
                     </h3>
-                    <p>
-                        amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
-                    </p>
-                    <p>
-                        month: {{CardItemCtrl.card.repayments.balanceFee.month}}
-                    </p>
+                    <div>
+                        <p>
+                            amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
+                        </p>
+                        <p>
+                            month: {{CardItemCtrl.card.repayments.balanceFee.month}}
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <h3>
                         Cost To You
                     </h3>
-                    <p>
-                        amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}
-                    </p>
-                    <p>
-                        month: {{CardItemCtrl.card.repayments.costToYou.month}}
-                    </p>    
+                    <div>
+                        <p>
+                            amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}
+                        </p>
+                        <p>
+                            month: {{CardItemCtrl.card.repayments.costToYou.month}}
+                        </p>
+                    </div>    
                 </div>
                 <div ng-if="CardItemCtrl.isDesktop()" class="card-item-links">
                     <a class="button" href="#">Go to site</a>
@@ -52,6 +67,17 @@
         <div class="card-item-links">
             <a href="#">Full details...</a>
             <a class="button" href="#">Go to site</a>
+        </div>
+        <div>
+            <p>
+                {{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
+            </p>
+            <p>
+                {{CardItemCtrl.card.repayments.actualFee.monthsDuration}} month
+            </p>
+            <p>
+                then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
+            </p>
         </div>
         <div>
             <h3>
