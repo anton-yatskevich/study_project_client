@@ -13,6 +13,10 @@
         selected-type="AppCtrl.sortType"
         on-change="AppCtrl.setSortType(type)" >
     </sort-type-select>
+    <notification
+        closed-by-app="AppCtrl.isFilledForm"
+        show-modal-window="AppCtrl.showModalWindow(true)" >
+    </notification>
     <card-list
         cards="AppCtrl.cards"
         sort-type="AppCtrl.sortType"

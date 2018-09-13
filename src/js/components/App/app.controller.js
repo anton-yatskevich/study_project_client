@@ -2,6 +2,7 @@ import angular from 'angular';
 import API_URL from '../../constants/API_URL';
 import * as CardFilterActions from '../../actions/CardFiltersActions';
 import DeviceTypeAction from '../../actions/DeviceTypeActions';
+import * as UserInfoActions from '../../actions/UserInfoAtions';
 import CARD_TYPES from '../../constants/CARD_TYPES';
 import SORT_TYPES from '../../constants/SORT_TYPES';
 
@@ -12,12 +13,15 @@ const mapStateToThis = (state) => {
 		cardType, sortType,
 	} = state.cardFilters;
 	const { deviceName } = state.device;
+	const { isVisibleForm, isFilledForm } = state.userInfo;
 	return {
 		cards,
 		sortType,
 		cardType,
 		isLoading,
 		deviceName,
+		isVisibleForm,
+		isFilledForm,
 	};
 };
 
@@ -30,7 +34,7 @@ class AppController {
 		this.sortTypes = SORT_TYPES;
 		const unsubscribe = this.$ngRedux.connect(
 			mapStateToThis,
-			Object.assign({}, DeviceTypeAction, CardFilterActions),
+			Object.assign({}, DeviceTypeAction, CardFilterActions, UserInfoActions),
 		)(this);
 		$scope.$on('$destroy', unsubscribe);
 	}

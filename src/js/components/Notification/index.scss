@@ -1,0 +1,33 @@
+.notification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #004D81;
+    position: relative;
+
+    a {
+        margin-left: 20px;
+    }
+    
+    .close-button {
+        position: absolute;
+        right: 5px;
+        top: 0px; 
+        transform: rotate(45deg);
+
+        a {     
+            padding: 5px;            
+            margin: 0;
+            font-size: 25px;
+            font-weight: normal;
+            text-decoration: none;
+            color: #000;
+        }
+    }
+}
+

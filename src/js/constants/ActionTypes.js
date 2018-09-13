@@ -3,3 +3,5 @@ export const SET_SORT_TYPE = 'SET_SORT_TYPE';
 export const REQUEST_CARDS = 'REQUEST_CARDS';
 export const RECEIVE_CARDS = 'RECEIVE_CARDS';
 export const SET_DEVICE_TYPE = 'SET_DEVICE_TYPE';
+export const SHOW_MODAL_WINDOW = 'SHOW_MODAL_WINDOW';
+export const FILL_USER_INFO = 'FILL_USER_INFO';
