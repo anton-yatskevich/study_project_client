@@ -1,5 +1,5 @@
 <div class="card-type-select-wrapper">
-    <label>Select card type:</label>
+    <label>You've selected:</label>
     <select ng-model="CardTypeCtrl.type" ng-change="CardTypeCtrl.changeType()">
         <option ng-repeat="type in CardTypeCtrl.types" ng-value="type">{{type.name}}</option>
     </select>

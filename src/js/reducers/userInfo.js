@@ -13,7 +13,7 @@ const userInfo = (state = initialState, action) => {
 	case SHOW_MODAL_WINDOW:
 		return Object.assign({}, state, { isVisibleForm: action.payload });
 	case FILL_USER_INFO:
-		return Object.assign({}, state, { isFilledForm: action.payload });
+		return Object.assign({}, state, { isFilledForm: action.payload, isVisibleForm: false });
 	default:
 		return state;
 	}

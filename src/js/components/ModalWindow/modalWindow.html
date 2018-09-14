@@ -4,5 +4,23 @@
     <div class="close-button">
         <a ng-click="ModalWindowCtrl.closeModalWindow()" href="#">+</a>
     </div>
-    <button ng-click="ModalWindowCtrl.fillForm()">Fill form</button>
+    <form class="user-info-form" ng-submit="ModalWindowCtrl.fillForm()">
+        <div>
+            <label for="userName">Your Name:</label>
+            <input type="text" name="userName" placeholder="Your name..." required>
+        </div>
+        <div>
+            <label for="userAge">Date of your Birth:</label>
+            <input type="text" name="userAge" placeholder="Date..." required>
+        </div>
+        <div>
+            <label for="annualIncome">Annual income:</label>
+            <div class="annual-income-input">
+                <input type="number" name="annualIncome" placeholder="Annual income..." required>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Submit</button>   
+        </div>
+    </form>
 </div>
