@@ -10,8 +10,19 @@
     color: #004D81;
     position: relative;
 
-    a {
+    .button {
         margin-left: 20px;
+        border: 2px solid #004D81;
+        color: #004D81;
+        padding: 5px 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        color: rgb(1, 99, 165);
+        border: 2px solid rgb(1, 99, 165);
     }
     
     .close-button {
@@ -21,9 +32,8 @@
         transform: rotate(45deg);
 
         a {     
-            padding: 5px;            
-            margin: 0;
-            font-size: 25px;
+            padding: 5px;
+            font-size: 30px;
             font-weight: normal;
             text-decoration: none;
             color: #000;
