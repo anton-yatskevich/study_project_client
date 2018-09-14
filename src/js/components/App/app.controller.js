@@ -13,7 +13,7 @@ const mapStateToThis = (state) => {
 		cardType, sortType,
 	} = state.cardFilters;
 	const { deviceName } = state.device;
-	const { isVisibleForm, isFilledForm } = state.userInfo;
+	const { isVisibleForm, isFilledForm, annualIncome } = state.userInfo;
 	return {
 		cards,
 		sortType,
@@ -22,6 +22,7 @@ const mapStateToThis = (state) => {
 		deviceName,
 		isVisibleForm,
 		isFilledForm,
+		annualIncome,
 	};
 };
 

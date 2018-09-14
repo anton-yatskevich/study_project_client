@@ -10,6 +10,23 @@ class CardItemController {
 	isDesktop() {
 		return this.device === 'desktop';
 	}
+
+	isBalanceFeeSortOrder() {
+		return this.sortOrderField.split('.').includes('balanceFee');
+	}
+
+	isCostToYouSortOrder() {
+		return this.sortOrderField.split('.').includes('costToYou');
+	}
+
+	isActualFeeOrder() {
+		return this.sortOrderField.split('.').includes('actualFee');
+	}
+
+	calcSavings() {
+		const potentialSavings = this.card.repayments.costToYou.amount * 2 - this.annualIncome / 12;
+		return potentialSavings > 0 ? potentialSavings : this.card.repayments.costToYou.amount / 2;
+	}
 }
 
 export default CardItemController;

@@ -2,10 +2,10 @@ import { SHOW_MODAL_WINDOW, FILL_USER_INFO } from '../constants/ActionTypes';
 
 const initialState = {
 	isVisibleForm: false,
-	isFilled: false,
+	isFilledForm: false,
 	name: '',
 	age: '',
-	annualIncome: '',
+	annualIncome: 0,
 };
 
 const userInfo = (state = initialState, action) => {

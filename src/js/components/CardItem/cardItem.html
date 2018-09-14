@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div ng-if="!CardItemCtrl.isMobile()" class="card-item-info">
-                <div>
+                <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isActualFeeOrder()}" >
                     <p>
                         {{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
                     </p>
@@ -30,9 +30,9 @@
                         then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
                     </p>
                 </div>
-                <div>
+                <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isBalanceFeeSortOrder()}">
                     <h3>
-                        BalanceFee
+                        Balance fee
                     </h3>
                     <div>
                         <p>
@@ -43,20 +43,20 @@
                         </p>
                     </div>
                 </div>
-                <div>
+                <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isCostToYouSortOrder()}">
                     <h3>
-                        Cost To You
+                        {{!CardItemCtrl.showPotentialSavings ? 'Cost to you' : 'Potential savings'}}
                     </h3>
                     <div>
                         <p>
-                            amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}
+                            amount: {{!CardItemCtrl.showPotentialSavings ? CardItemCtrl.card.repayments.costToYou.amount : CardItemCtrl.calcSavings() | currency:"£":0}}
                         </p>
                         <p>
                             month: {{CardItemCtrl.card.repayments.costToYou.month}}
                         </p>
                     </div>    
                 </div>
-                <div ng-if="CardItemCtrl.isDesktop()" class="card-item-links">
+                <div ng-if="CardItemCtrl.isDesktop()" class="card-item-links card-info-field">
                     <a class="button" href="#">Go to site</a>
                     <a href="#">Full details...</a>
                 </div>
@@ -64,11 +64,11 @@
         </div>
     </div>
     <div ng-if="CardItemCtrl.isMobile()" class="card-item-info-mobile">
-        <div class="card-item-links">
+        <div class="card-item-links card-info-field">
             <a href="#">Full details...</a>
             <a class="button" href="#">Go to site</a>
         </div>
-        <div>
+        <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isActualFeeOrder()}">
             <p>
                 {{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
             </p>
@@ -79,9 +79,9 @@
                 then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
             </p>
         </div>
-        <div>
+        <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isBalanceFeeSortOrder()}">
             <h3>
-                BalanceFee
+                Balance fee
             </h3>
             <p>
                 amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
@@ -90,9 +90,9 @@
                 month: {{CardItemCtrl.card.repayments.balanceFee.month}}
             </p>
         </div>
-        <div>
+        <div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isCostToYouSortOrder()}">
             <h3>
-                Cost To You
+                {{!CardItemCtrl.showPotentialSavings ? 'Cost to you' : 'Potential savings'}}
             </h3>
             <p>
                 amount: {{CardItemCtrl.card.repayments.costToYou.amount | currency:"£":0}}

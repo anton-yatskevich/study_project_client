@@ -10,23 +10,30 @@ const SORT_TYPES = [
 		number: false,
 	},
 	{
-		name: 'BalanceFee amount',
+		name: 'Balance fee amount',
 		sortField: 'repayments.balanceFee.amount',
 		number: true,
 	},
 	{
-		name: 'BalanceFee month',
+		name: 'Balance fee month',
 		sortField: 'repayments.balanceFee.month',
 		number: true,
 	},
 	{
 		name: 'Cost To You amount',
-		sortField: 'repayments.costToYou.amount',
+		altName: 'Potential savings amount',
+		sortField: '-repayments.costToYou.amount',
 		number: true,
 	},
 	{
 		name: 'Cost To You month',
+		altName: 'Potential savings month',
 		sortField: 'repayments.costToYou.month',
+		number: true,
+	},
+	{
+		name: 'Actual fee percent',
+		sortField: 'repayments.actualFee.periodPercent',
 		number: true,
 	},
 ];

@@ -11,7 +11,8 @@
     <sort-type-select
         types="AppCtrl.sortTypes"
         selected-type="AppCtrl.sortType"
-        on-change="AppCtrl.setSortType(type)" >
+        on-change="AppCtrl.setSortType(type)" 
+        is-filled-user-info="AppCtrl.isFilledForm" >
     </sort-type-select>
     <notification
         closed-by-app="AppCtrl.isFilledForm"
@@ -23,12 +24,15 @@
         card-type="AppCtrl.cardType"
         cost-amount="AppCtrl.costAmount"
         cost-in-month="AppCtrl.costInMonth"
-        device="AppCtrl.deviceName" >
+        device="AppCtrl.deviceName"
+        is-filled-user-info="AppCtrl.isFilledForm" 
+        annual-income="AppCtrl.annualIncome">
     </card-list>
 </div>
 <modal-window 
     ng-if="AppCtrl.isVisibleForm"
-    close-modal-window="AppCtrl.showModalWindow(false)" >
+    close-modal-window="AppCtrl.showModalWindow(false)"
+    fill-form="AppCtrl.fillUserInfo()" >
     <card-type-select
         types="AppCtrl.cardTypes"
         selected-type="AppCtrl.cardType"
