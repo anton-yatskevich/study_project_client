@@ -5,7 +5,7 @@ export const showModalWindow = boolean => ({
 	payload: boolean,
 });
 
-export const fillUserInfo = () => ({
+export const setUserInfo = user => ({
 	type: types.FILL_USER_INFO,
-	payload: true,
+	payload: user,
 });

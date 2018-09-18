@@ -31,8 +31,7 @@
 </div>
 <modal-window 
     ng-if="AppCtrl.isVisibleForm && !AppCtrl.isFilledForm"
-    close-modal-window="AppCtrl.showModalWindow(false)"
-    fill-form="AppCtrl.fillUserInfo()" >
+    fill-user-info="AppCtrl.setUserInfo(user)" >
     <card-type-select
         types="AppCtrl.cardTypes"
         selected-type="AppCtrl.cardType"

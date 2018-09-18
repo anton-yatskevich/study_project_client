@@ -35,10 +35,11 @@
     flex-direction: column;
     align-items: center;
 
-    div {
+    > div {
         display: flex;
         flex-direction: column;
         font-size: 24px;
+        margin-bottom: 15px;
 
         label {
             
@@ -70,7 +71,13 @@
         }
     }
 
-    div:last-of-type {
+    .has-error {
+        input {
+            border-color: #b94a48;
+        }
+    }
+
+    .submit-container {
         align-self: flex-end;
     }
 
@@ -101,5 +108,11 @@
         }
 
     }
-
 }
+
+.error-messages-container {
+    align-self: left;
+    font-size: 16px;
+    color: #b94a48;
+}
+

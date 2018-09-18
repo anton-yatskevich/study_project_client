@@ -1,4 +1,3 @@
-import angular from 'angular';
 import API_URL from '../../constants/API_URL';
 import * as CardFilterActions from '../../actions/CardFiltersActions';
 import DeviceTypeAction from '../../actions/DeviceTypeActions';

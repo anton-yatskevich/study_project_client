@@ -10,7 +10,6 @@ export default angular.module('studyProject')
 		controllerAs: 'ModalWindowCtrl',
 		transclude: true,
 		bindings: {
-			closeModalWindow: '&',
-			fillForm: '&',
+			fillUserInfo: '&',
 		},
 	});

@@ -4,7 +4,7 @@ const initialState = {
 	isVisibleForm: false,
 	isFilledForm: false,
 	name: '',
-	age: '',
+	age: 0,
 	annualIncome: 0,
 };
 
@@ -13,7 +13,13 @@ const userInfo = (state = initialState, action) => {
 	case SHOW_MODAL_WINDOW:
 		return Object.assign({}, state, { isVisibleForm: action.payload });
 	case FILL_USER_INFO:
-		return Object.assign({}, state, { isFilledForm: action.payload, isVisibleForm: false });
+		return Object.assign({}, state, {
+			isFilledForm: true,
+			isVisibleForm: false,
+			name: action.payload.name,
+			age: action.payload.age,
+			annualIncome: action.payload.annualIncome,
+		});
 	default:
 		return state;
 	}
