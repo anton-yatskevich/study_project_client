@@ -49,28 +49,28 @@ describe('Component: appContainer', () => {
 		expect(fetch).toThrow();
 	});
 
-	it('should call callback on resize window', () => {
-		spyOn(ctrl, 'onResize');
-		$window.innerWidth = ctrl.minWidth;
-		angular.element($window).triggerHandler('resize');
+	// it('should call callback on resize window', () => {
+	// 	spyOn(ctrl, 'onResize');
+	// 	$window.innerWidth = ctrl.minWidth;
+	// 	angular.element($window).triggerHandler('resize');
 
-		expect(ctrl.onResize).toHaveBeenCalled();
+	// 	expect(ctrl.onResize).toHaveBeenCalled();
 
-		$window.innerWidth = ctrl.maxWidth;
-		angular.element($window).triggerHandler('resize');
+	// 	$window.innerWidth = ctrl.maxWidth;
+	// 	angular.element($window).triggerHandler('resize');
 
-		expect(ctrl.onResize.calls.count()).toEqual(2);
-	});
+	// 	expect(ctrl.onResize.calls.count()).toEqual(2);
+	// });
 
-	it('should set cost amount', () => {
-		ctrl.setCostAmountFilter(10);
-		expect(ctrl.costAmount).toEqual(10);
-	});
+	// it('should set cost amount', () => {
+	// 	ctrl.setCostAmountFilter(10);
+	// 	expect(ctrl.costAmount).toEqual(10);
+	// });
 
-	it('should set month amount', () => {
-		ctrl.setCostInMonth(1);
-		expect(ctrl.costInMonth).toEqual(1);
-	});
+	// it('should set month amount', () => {
+	// 	ctrl.setCostInMonth(1);
+	// 	expect(ctrl.costInMonth).toEqual(1);
+	// });
 
 	it('should set card type', () => {
 		ctrl.setCardType('balanceFee');
