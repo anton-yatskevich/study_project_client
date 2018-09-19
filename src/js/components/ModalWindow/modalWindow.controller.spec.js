@@ -85,4 +85,25 @@ describe('Component: modalWindow', () => {
 
 		expect(ctrl.$scope.userForm.userAnnualIncome.$valid).toBe(false);
 	});
+
+	it('should submit form', () => {
+		spyOn(ctrl, 'fillUserInfo');
+
+		ctrl.onSubmitUserForm();
+
+		expect(ctrl.$scope.userForm.$valid).toBe(false);
+		expect(ctrl.fillUserInfo.calls.count()).toEqual(0);
+
+		ctrl.$scope.userForm.userName.$setViewValue('valid');
+		ctrl.$scope.userForm.userName.$commitViewValue();
+		ctrl.$scope.userForm.userAge.$setViewValue('1/1/1990');
+		ctrl.$scope.userForm.userAge.$commitViewValue();
+		ctrl.$scope.userForm.userAnnualIncome.$setViewValue(1);
+		ctrl.$scope.userForm.userAnnualIncome.$commitViewValue();
+
+		ctrl.onSubmitUserForm();
+
+		expect(ctrl.$scope.userForm.$valid).toBe(true);
+		expect(ctrl.fillUserInfo).toHaveBeenCalled();
+	});
 });
