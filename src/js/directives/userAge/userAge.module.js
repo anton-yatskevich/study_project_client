@@ -15,12 +15,12 @@ const userAge = angular.module('studyProject')
 					const [day, month, year] = dateArr;
 					const currentDate = new Date();
 					const currentYear = currentDate.getFullYear();
-					const currentMonth = currentDate.getMonth();
+					const currentMonth = currentDate.getMonth() + 1;
 					const currentDay = currentDate.getDate();
 					age = currentYear - year;
-					if (month > currentMonth + 1) {
+					if (month > currentMonth) {
 						age -= 1;
-					} else if (month === currentMonth + 1 || day > currentDay) {
+					} else if (Number(month) === Number(currentMonth) && day > currentDay) {
 						age -= 1;
 					}
 					if (age >= 18 && age < 100) {
