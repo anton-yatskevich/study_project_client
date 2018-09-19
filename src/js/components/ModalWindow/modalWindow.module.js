@@ -11,5 +11,6 @@ export default angular.module('studyProject')
 		transclude: true,
 		bindings: {
 			fillUserInfo: '&',
+			closeModalWindow: '&',
 		},
 	});

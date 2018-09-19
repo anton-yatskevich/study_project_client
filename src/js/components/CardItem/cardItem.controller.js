@@ -12,15 +12,15 @@ class CardItemController {
 	}
 
 	isBalanceFeeSortOrder() {
-		return this.sortOrderField.split('.').includes('balanceFee');
+		return this.sortOrderField.split('.').indexOf('balanceFee') > -1;
 	}
 
 	isCostToYouSortOrder() {
-		return this.sortOrderField.split('.').includes('costToYou');
+		return this.sortOrderField.split('.').indexOf('costToYou') > -1;
 	}
 
 	isActualFeeOrder() {
-		return this.sortOrderField.split('.').includes('actualFee');
+		return this.sortOrderField.split('.').indexOf('actualFee') > -1;
 	}
 
 	calcSavings() {

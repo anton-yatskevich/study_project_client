@@ -40,4 +40,30 @@ describe('Component: cardItem', () => {
 		expect(ctrl.isTablet()).toBe(false);
 		expect(ctrl.isDesktop()).toBe(true);
 	});
+
+	it('should confirm that sort order is Balance fee', () => {
+		ctrl.sortOrderField = 'balanceFee';
+		expect(ctrl.isBalanceFeeSortOrder()).toBe(true);
+		expect(ctrl.isCostToYouSortOrder()).toBe(false);
+	});
+
+	it('should confirm that sort order is Actual fee', () => {
+		ctrl.sortOrderField = 'actualFee';
+		expect(ctrl.isActualFeeOrder()).toBe(true);
+		expect(ctrl.isCostToYouSortOrder()).toBe(false);
+	});
+
+	it('should confirm that sort order is Cost To You', () => {
+		ctrl.sortOrderField = 'costToYou';
+		expect(ctrl.isCostToYouSortOrder()).toBe(true);
+		expect(ctrl.isBalanceFeeSortOrder()).toBe(false);
+	});
+
+	it('should calculate correct user savings', () => {
+		ctrl.card = { repayments: { costToYou: { amount: 1 } } };
+		expect(ctrl.calcSavings()).toEqual(ctrl.card.repayments.costToYou.amount / 2);
+
+		ctrl.annualIncome = 0;
+		expect(ctrl.calcSavings()).toEqual(ctrl.card.repayments.costToYou.amount * 2);
+	});
 });
