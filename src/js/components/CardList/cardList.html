@@ -1,11 +1,12 @@
 <div class="card-list">
     <card-item 
         ng-repeat="cardItem in CardListCtrl.cards | 
-            cardType:CardListCtrl.cardType | 
-            costInMonth:CardListCtrl.costInMonth | 
-            costAmount:CardListCtrl.costAmount | 
+            cardType:CardListCtrl.cardType |
             orderBy:CardListCtrl.sortType.sortField" 
         card="cardItem"
-        device="CardListCtrl.device" >
+        device="CardListCtrl.device" 
+        show-potential-savings="CardListCtrl.isFilledUserInfo" 
+        sort-order-field="CardListCtrl.sortType.sortField" 
+        annual-income="CardListCtrl.annualIncome">
     </card-item>
 </div>

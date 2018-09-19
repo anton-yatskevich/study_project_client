@@ -15,5 +15,7 @@ export default angular.module('studyProject')
 			sortType: '<',
 			cards: '<',
 			device: '<',
+			isFilledUserInfo: '<',
+			annualIncome: '<',
 		},
 	});

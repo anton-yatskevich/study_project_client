@@ -1,30 +1,41 @@
 <div ng-if="AppCtrl.isLoading" class="spinner-wrapper">
     <div class="spinner"></div>
 </div>
-<div ng-if="!AppCtrl.isLoading" class="app-cotainer" resize="AppCtrl.setDeviceType(width)">
-    <h3>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h3>
+<div ng-if="!AppCtrl.isLoading && !AppCtrl.isVisibleForm" class="app-container" resize="AppCtrl.setDeviceType(width)">
+    <h2>We have found {{(AppCtrl.cards | cardType:AppCtrl.cardType).length }} {{AppCtrl.cardType.value}} cards</h2>
     <card-type-select
         types="AppCtrl.cardTypes"
         selected-type="AppCtrl.cardType"
         on-change="AppCtrl.setCardType(type)" >
     </card-type-select>
-    <credit-calculator
-        balance="AppCtrl.costAmount"
-        month="AppCtrl.costInMonth"  
-        on-update-month="AppCtrl.setCostInMonth(month)"
-        on-update-balance-fee="AppCtrl.setCostAmountFilter(balance)" >
-    </credit-calculator>
     <sort-type-select
         types="AppCtrl.sortTypes"
         selected-type="AppCtrl.sortType"
-        on-change="AppCtrl.setSortType(type)" >
+        on-change="AppCtrl.setSortType(type)" 
+        is-filled-user-info="AppCtrl.isFilledForm" >
     </sort-type-select>
+    <notification
+        closed-by-app="AppCtrl.isFilledForm"
+        show-modal-window="AppCtrl.showModalWindow(true)" >
+    </notification>
     <card-list
         cards="AppCtrl.cards"
         sort-type="AppCtrl.sortType"
         card-type="AppCtrl.cardType"
         cost-amount="AppCtrl.costAmount"
         cost-in-month="AppCtrl.costInMonth"
-        device="AppCtrl.deviceName" >
+        device="AppCtrl.deviceName"
+        is-filled-user-info="AppCtrl.isFilledForm" 
+        annual-income="AppCtrl.annualIncome">
     </card-list>
 </div>
+<modal-window 
+    ng-if="AppCtrl.isVisibleForm && !AppCtrl.isFilledForm"
+    fill-user-info="AppCtrl.setUserInfo(user)" 
+    close-modal-window="AppCtrl.showModalWindow(false)" >
+    <card-type-select
+        types="AppCtrl.cardTypes"
+        selected-type="AppCtrl.cardType"
+        on-change="AppCtrl.setCardType(type)" >
+    </card-type-select>
+</modal-window>

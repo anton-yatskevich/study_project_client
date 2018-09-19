@@ -11,5 +11,8 @@ export default angular.module('studyProject')
 		bindings: {
 			card: '<',
 			device: '<',
+			showPotentialSavings: '<',
+			sortOrderField: '<',
+			annualIncome: '<',
 		},
 	});

@@ -1,5 +1,6 @@
 import angular from 'angular';
 import ngRedux from 'ng-redux';
+import ngMessages from 'angular-messages';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
@@ -10,7 +11,7 @@ const logger = createLogger({
 	collapsed: true,
 });
 
-const studyProject = angular.module('studyProject', [ngRedux])
+const studyProject = angular.module('studyProject', [ngRedux, ngMessages])
 	.config(($ngReduxProvider) => {
 		$ngReduxProvider.createStoreWith(reducer, [thunk, logger]);
 	})

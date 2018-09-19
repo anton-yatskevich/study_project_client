@@ -1,57 +1,61 @@
-// import AppCtrl from './app.controller';
+describe('Component: appContainer', () => {
+	let $compile;
+	let $rootScope;
+	let $httpBackend;
+	let $window;
+	let scope;
+	let ctrl;
+	let element;
 
-// describe('app ctrl', () => {
+	beforeEach(() => {
+		angular.mock.module('studyProject');
+	});
 
-// 	let scope, element, ctrl, $compile, $rootScope, el;
+	beforeEach(inject((_$rootScope_, _$compile_, _$httpBackend_, _$window_) => {
+		$rootScope = _$rootScope_;
+		$compile = _$compile_;
+		$httpBackend = _$httpBackend_;
+		$window = _$window_;
 
-// 	beforeEach(angular.mock.module('studyProject'));
+		element = angular.element('<app-container></app-container>');
+		scope = $rootScope.$new();
+		element = $compile(element)(scope);
+		ctrl = element.controller('appContainer');
 
-// 	beforeEach(inject((_$compile_, _$rootScope_) => {
-// 		$compile = _$compile_;
-// 		$rootScope = _$rootScope_;
+		$httpBackend.whenGET('http://localhost:3000/').respond([{ card: 1 }, { card: 2 }]);
+	}));
 
-// 		// $compile = $injector.get('$compile');
-// 		// $rootScope = $injector.get('$rootScope');
-// 		// scope = $rootScope.$new(true);
-// 		// el = $compile(angular.element("<app-container></app-container>"))(scope);
-// 		// ctrl = el.controller('AppCtrl');
-// 		// scope.$digest();
-// 		// scope = $rootScope.$new(true);
-// 		// element = angular.element(
-// 		// 	`<app-container></app-container>`
-// 		// 	// '<name-formatter></name-formatter>'
-// 		// );
-// 		// element = $compile(element)(scope);
-// 		// ctrl = element.controller('AppCtrl');
-// 		// scope.$digest();
-// 	}));
+	it('should controller exist', () => {
+		expect(ctrl).toBeDefined();
+	});
 
-// 	it('should init component', () => {
-// 		element = angular.element(`<app-container/>`)
-// 		scope = $rootScope.$new(true);
-// 		el = $compile(element)(scope);
-// 		ctrl = el.controller('appContainer');
-// 		scope.$digest();
-// 		expect(el).toBeDefined();
-// 	});
+	it('shoul fetch cards', () => {
+		expect(ctrl.cards).toEqual([]);
+		expect(ctrl.isLoading).toBe(true);
 
-// 	// describe('app', () => {
-// 	// 	initComponent = () => {
-// 	// 		console.log( $rootScope)
-// 	// 		scope = $rootScope.$new();
-// 	// 		element = angular.element(
-// 	// 			'<app-container></app-container>'
-// 	// 		);
-// 	// 		element = $compile(element)(scope);
-// 	// 		ctrl = element.controller('AppCtrl');
-// 	// 		scope.$digest();
-// 	// 	}
-	
-// 	// 	beforeEach(initComponent());
-	
+		$httpBackend.flush();
 
-// 	// })
-	
+		expect(ctrl.cards).toEqual([{ card: 1 }, { card: 2 }]);
+		expect(ctrl.isLoading).toBe(false);
+	});
 
-// });
+	it('should throw error, when request send to wrong url', () => {
+		$httpBackend.whenGET('http://localhost:1000/').respond(400, '');
+		const fetch = () => {
+			ctrl.$ngRedux.dispatch(ctrl.FetchService.fetchCards('http://localhost:1000/'));
+			$httpBackend.flush();
+		};
 
+		expect(fetch).toThrow();
+	});
+
+	it('should set card type', () => {
+		ctrl.setCardType('balanceFee');
+		expect(ctrl.cardType).toEqual('balanceFee');
+	});
+
+	it('should set sort type', () => {
+		ctrl.setSortType('type');
+		expect(ctrl.sortType).toEqual('type');
+	});
+});
