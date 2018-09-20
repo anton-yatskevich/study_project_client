@@ -20,10 +20,6 @@ describe('Component: modalWindow', () => {
 		scope.$digest();
 	}));
 
-	it('should controller exist', () => {
-		expect(ctrl).toBeDefined();
-	});
-
 	it('should valid userName input', () => {
 		ctrl.$scope.userForm.userName.$setViewValue('a');
 		ctrl.$scope.userForm.userName.$commitViewValue();
@@ -88,7 +84,6 @@ describe('Component: modalWindow', () => {
 
 	it('should submit form', () => {
 		spyOn(ctrl, 'fillUserInfo');
-
 		ctrl.onSubmitUserForm();
 
 		expect(ctrl.$scope.userForm.$valid).toBe(false);
@@ -100,7 +95,6 @@ describe('Component: modalWindow', () => {
 		ctrl.$scope.userForm.userAge.$commitViewValue();
 		ctrl.$scope.userForm.userAnnualIncome.$setViewValue(1);
 		ctrl.$scope.userForm.userAnnualIncome.$commitViewValue();
-
 		ctrl.onSubmitUserForm();
 
 		expect(ctrl.$scope.userForm.$valid).toBe(true);

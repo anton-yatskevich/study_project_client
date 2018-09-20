@@ -19,13 +19,10 @@ describe('Component: sortTypeSelect', () => {
 		ctrl = element.controller('sortTypeSelect');
 	}));
 
-	it('should controller exist', () => {
-		expect(ctrl).toBeDefined();
-	});
-
 	it('should call event handler on change select element', () => {
 		spyOn(ctrl, 'onChange');
 		element.find('select').triggerHandler('change');
+
 		expect(ctrl.onChange).toHaveBeenCalled();
 	});
 });

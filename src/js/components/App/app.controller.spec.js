@@ -2,7 +2,6 @@ describe('Component: appContainer', () => {
 	let $compile;
 	let $rootScope;
 	let $httpBackend;
-	let $window;
 	let scope;
 	let ctrl;
 	let element;
@@ -11,11 +10,10 @@ describe('Component: appContainer', () => {
 		angular.mock.module('studyProject');
 	});
 
-	beforeEach(inject((_$rootScope_, _$compile_, _$httpBackend_, _$window_) => {
+	beforeEach(inject((_$rootScope_, _$compile_, _$httpBackend_) => {
 		$rootScope = _$rootScope_;
 		$compile = _$compile_;
 		$httpBackend = _$httpBackend_;
-		$window = _$window_;
 
 		element = angular.element('<app-container></app-container>');
 		scope = $rootScope.$new();
@@ -24,10 +22,6 @@ describe('Component: appContainer', () => {
 
 		$httpBackend.whenGET('http://localhost:3000/').respond([{ card: 1 }, { card: 2 }]);
 	}));
-
-	it('should controller exist', () => {
-		expect(ctrl).toBeDefined();
-	});
 
 	it('shoul fetch cards', () => {
 		expect(ctrl.cards).toEqual([]);

@@ -19,10 +19,6 @@ describe('Component: notification', () => {
 		ctrl = element.controller('notification');
 	}));
 
-	it('should controller exist', () => {
-		expect(ctrl).toBeDefined();
-	});
-
 	it('should turn closedByUser to true', () => {
 		ctrl.closeNotification();
 

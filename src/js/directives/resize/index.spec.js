@@ -21,10 +21,6 @@ describe('Directive: resize', () => {
 		ctrl = element.controller('resize');
 	}));
 
-	it('should controller exist', () => {
-		expect(ctrl).toBeDefined();
-	});
-
 	it('should call callback on resize window', () => {
 		spyOn(ctrl, 'onResize');
 		$window.innerWidth = -Infinity;
