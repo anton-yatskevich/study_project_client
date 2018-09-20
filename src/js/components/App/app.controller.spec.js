@@ -50,6 +50,28 @@ describe('Component: appContainer', () => {
 
 	it('should set sort type', () => {
 		ctrl.setSortType('type');
+
 		expect(ctrl.sortType).toEqual('type');
+	});
+
+	it('should show modal window with form', () => {
+		expect(ctrl.isVisibleForm).toBe(false);
+
+		ctrl.$ngRedux.dispatch(ctrl.showModalWindow(true));
+
+		expect(ctrl.isVisibleForm).toBe(true);
+	});
+
+	it('should fill user info', () => {
+		expect(ctrl.isFilledForm).toBe(false);
+
+		const user = {
+			name: 'name',
+			age: 20,
+			annualIncome: 1000,
+		};
+		ctrl.$ngRedux.dispatch(ctrl.setUserInfo(user));
+
+		expect(ctrl.isFilledForm).toBe(true);
 	});
 });
