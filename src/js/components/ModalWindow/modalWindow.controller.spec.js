@@ -82,9 +82,16 @@ describe('Component: modalWindow', () => {
 		expect(ctrl.$scope.userForm.userAnnualIncome.$valid).toBe(false);
 	});
 
+	it('should call submit handler', () => {
+		spyOn(ctrl, 'onSubmitUserForm');
+		element.find('form').triggerHandler('submit');
+
+		expect(ctrl.onSubmitUserForm).toHaveBeenCalled();
+	});
+
 	it('should submit form', () => {
 		spyOn(ctrl, 'fillUserInfo');
-		ctrl.onSubmitUserForm();
+		element.find('form').triggerHandler('submit');
 
 		expect(ctrl.$scope.userForm.$valid).toBe(false);
 		expect(ctrl.fillUserInfo.calls.count()).toEqual(0);
@@ -95,7 +102,7 @@ describe('Component: modalWindow', () => {
 		ctrl.$scope.userForm.userAge.$commitViewValue();
 		ctrl.$scope.userForm.userAnnualIncome.$setViewValue(1);
 		ctrl.$scope.userForm.userAnnualIncome.$commitViewValue();
-		ctrl.onSubmitUserForm();
+		element.find('form').triggerHandler('submit');
 
 		expect(ctrl.$scope.userForm.$valid).toBe(true);
 		expect(ctrl.fillUserInfo).toHaveBeenCalled();
