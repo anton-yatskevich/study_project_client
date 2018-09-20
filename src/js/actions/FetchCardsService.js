@@ -1,12 +1,12 @@
-import * as types from '../constants/ActionTypes';
+import { REQUEST_CARDS, RECEIVE_CARDS } from '../constants/ActionTypes';
 
 const cardsIsLoading = bool => ({
-	type: types.REQUEST_CARDS,
+	type: REQUEST_CARDS,
 	payload: bool,
 });
 
 const receiveCards = cards => ({
-	type: types.RECEIVE_CARDS,
+	type: RECEIVE_CARDS,
 	payload: cards,
 });
 
