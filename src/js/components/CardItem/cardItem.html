@@ -1,109 +1,111 @@
-<div class="card-list-item">
-	<div class="card-item-main" ng-class="{'card-item-main-mobile': CardItemCtrl.isMobile()}">
-		<div ng-class="(CardItemCtrl.isMobile()) ? 'card-image-mobile' : 'card-image'">
-			<img ng-src="{{CardItemCtrl.card.image}}" alt="{{CardItemCtrl.card.name}}">
+<div class="card-item">
+	<div class="card-item__main" ng-class="{ 'card-item__main--mobile': CardItemCtrl.isMobile() }">
+		<div class="card-item__image-wrapper" ng-class="(CardItemCtrl.isMobile()) ? 'card-item__image-wrapper--mobile' : 'card-item__image-wrapper--desktop'">
+			<img class="card-item__image" ng-src="{{ CardItemCtrl.card.image }}" alt="{{ CardItemCtrl.card.name }}">
 		</div>
-		<div class="card-item-body">
-			<div ng-class="{'card-item-body-tablet': CardItemCtrl.isTablet()}" class="card-item-header">
+		<div class="card-item__body">
+			<div class="card-item__header" ng-class="{'card-item__header--tablet': CardItemCtrl.isTablet()}" >
 				<div>
-					<h2>
+					<h2 class="card-item__header-text">
 						{{CardItemCtrl.card.name}}
 					</h2>
-					<p>
+					<p class="card-item__main-info-field-text">
 						Type: {{CardItemCtrl.card.type}}
 					</p>
 				</div>
-				<div ng-if="CardItemCtrl.isTablet()" class="card-item-links">
-						<a class="button" href="#">Go to site</a>
-						<a href="#">Full details...</a>
+				<div class="card-item__links-field" ng-if="CardItemCtrl.isTablet()">
+						<a class="card-item__button" href="#">Go to site</a>
+						<a class="card-item__link" href="#">Full details...</a>
 				</div>
 			</div>
-			<div ng-if="!CardItemCtrl.isMobile()" class="card-item-info">
-				<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isActualFeeOrder()}" >
-					<p>
+			<div class="card-item__main-info" ng-if="!CardItemCtrl.isMobile()">
+				<div class="card-item__main-info-field" ng-class="{ 'card-item__main-info-field--selected-sort': CardItemCtrl.isActualFeeOrder() }" >
+					<p class="card-item__main-info-field-text">
 						{{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
 					</p>
-					<p>
+					<p class="card-item__main-info-field-text">
 						{{CardItemCtrl.card.repayments.actualFee.monthsDuration}} month
 					</p>
-					<p>
+					<p class="card-item__main-info-field-text">
 						then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
 					</p>
 				</div>
-				<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isBalanceFeeSortOrder()}">
+				<div class="card-item__main-info-field" ng-class="{ 'card-item__main-info-field--selected-sort': CardItemCtrl.isBalanceFeeSortOrder() }">
 					<h3>
 						Balance fee
 					</h3>
 					<div>
-						<p>
+						<p class="card-item__main-info-field-text">
 							amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
 						</p>
-						<p>
+						<p class="card-item__main-info-field-text">
 							month: {{CardItemCtrl.card.repayments.balanceFee.month}}
 						</p>
 					</div>
 				</div>
-				<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isCostToYouSortOrder()}">
+				<div class="card-item__main-info-field" ng-class="{'card-item__main-info-field--selected-sort': CardItemCtrl.isCostToYouSortOrder()}">
 					<h3>
 						{{!CardItemCtrl.showPotentialSavings ? 'Cost to you' : 'Potential savings'}}
 					</h3>
 					<div>
-						<p>
+						<p class="card-item__main-info-field-text">
 							amount: {{!CardItemCtrl.showPotentialSavings ? CardItemCtrl.card.repayments.costToYou.amount : CardItemCtrl.calcSavings() | currency:"£":0}}
 						</p>
-						<p>
+						<p class="card-item__main-info-field-text">
 							month: {{CardItemCtrl.card.repayments.costToYou.month}}
 						</p>
 					</div>    
 				</div>
-				<div ng-if="CardItemCtrl.isDesktop()" class="card-item-links card-info-field">
-					<a class="button" href="#">Go to site</a>
-					<a href="#">Full details...</a>
+				<div ng-if="CardItemCtrl.isDesktop()" 
+					class="card-item__links-field card-item__main-info-field" >
+					<a class="card-item__button" href="#">Go to site</a>
+					<a class="card-item__link" href="#">Full details...</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div ng-if="CardItemCtrl.isMobile()" class="card-item-info-mobile">
-		<div class="card-item-links card-info-field">
-			<a href="#">Full details...</a>
-			<a class="button" href="#">Go to site</a>
+	<div class="card-item__main-info card-item__main-info--mobile" ng-if="CardItemCtrl.isMobile()">
+		<div class="card-item__links-field">
+			<a class="card-item__link" href="#">Full details...</a>
+			<a class="card-item__button" href="#">Go to site</a>
 		</div>
-		<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isActualFeeOrder()}">
-			<p>
+		<div class="card-item__main-info-field" 
+			ng-class="{'card-item__main-info-field--selected-sort': CardItemCtrl.isActualFeeOrder()}" >
+			<p class="card-item__main-info-field-text">
 				{{CardItemCtrl.card.repayments.actualFee.periodPercent}}% period
 			</p>
-			<p>
+			<p class="card-item__main-info-field-text">
 				{{CardItemCtrl.card.repayments.actualFee.monthsDuration}} month
 			</p>
-			<p>
+			<p class="card-item__main-info-field-text">
 				then {{CardItemCtrl.card.repayments.actualFee.thenPeriod}}%
 			</p>
 		</div>
-		<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isBalanceFeeSortOrder()}">
+		<div class="card-item__main-info-field" ng-class="{'card-item__main-info-field--selected-sort': CardItemCtrl.isBalanceFeeSortOrder()}" >
 			<h3>
 				Balance fee
 			</h3>
-			<p>
+			<p class="card-item__main-info-field-text">
 				amount: {{CardItemCtrl.card.repayments.balanceFee.amount | currency:"£":0}}
 			</p>
-			<p>
+			<p class="card-item__main-info-field-text">
 				month: {{CardItemCtrl.card.repayments.balanceFee.month}}
 			</p>
 		</div>
-		<div class="card-info-field" ng-class="{'selected-sort-field': CardItemCtrl.isCostToYouSortOrder()}">
+		<div class="card-item__main-info-field" ng-class="{'card-item__main-info-field--selected-sort': CardItemCtrl.isCostToYouSortOrder()}" >
 			<h3>
 				{{!CardItemCtrl.showPotentialSavings ? 'Cost to you' : 'Potential savings'}}
 			</h3>
-			<p>
+			<p class="card-item__main-info-field-text">
 				amount: {{!CardItemCtrl.showPotentialSavings ? CardItemCtrl.card.repayments.costToYou.amount : CardItemCtrl.calcSavings() | currency:"£":0}}
 			</p>
-			<p>
+			<p class="card-item__main-info-field-text">
 				month: {{CardItemCtrl.card.repayments.costToYou.month}}
 			</p>    
 		</div>
 	</div>
-	<div class="card-item-footer">
-		<p>
+	<div class="card-item__footer">
+		<p class="card-item__footer-text">
 			Representative Example: you can spend {{CardItemCtrl.card.representativeExmp.spend | currency:"£":0}} 
 			within  {{CardItemCtrl.card.representativeExmp.purchase | currency:"£":0}} purchase
 		</p>

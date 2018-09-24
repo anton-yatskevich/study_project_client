@@ -1,43 +1,61 @@
-<div class="modal-window-container">
-    <h2>Help us calculate how much you could save</h2>
+<div class="modal-window">
+    <h2 class="modal-window__header">Help us calculate how much you could save</h2>
     <div ng-transclude></div>
-    <div class="close-button">
-        <a ng-click="ModalWindowCtrl.closeModalWindow()" href="#">+</a>
-    </div>
-    <form class="user-info-form" ng-model="ModalWindowCtrl.userForm" name="userForm" ng-submit="ModalWindowCtrl.onSubmitUserForm()" novalidate>
-        <div ng-class="{ 'has-error': userForm.userName.$touched && userForm.userName.$invalid }">
+    <a class="modal-window__close-button" ng-click="ModalWindowCtrl.closeModalWindow()" href="#">+</a>
+    <form class="user-form" 
+        ng-model="ModalWindowCtrl.userForm" 
+        name="userForm" 
+        ng-submit="ModalWindowCtrl.onSubmitUserForm()" 
+        novalidate >
+        <div class="user-form__field">
             <label for="userName">Your Name:</label>
-            <input type="text" name="userName" placeholder="Your name..." 
+            <input 
+                class="user-form__input"
+                ng-class="{ 'user-form__input--has-error': userForm.userName.$touched && userForm.userName.$invalid }"
+                type="text" 
+                name="userName" 
+                placeholder="Your name..." 
                 ng-model="ModalWindowCtrl.userName" 
                 ng-model-options="{ updateOn: 'blur' }" 
                 maxlength="16" 
                 minlength="3" 
                 ng-pattern="/^[a-z-]+$/i" 
                 required >
-            <div ng-messages="userForm.userName.$error" class="error-messages-container" ng-if="userForm.userName.$touched">
+            <div class="user-form__error-messages" 
+                ng-messages="userForm.userName.$error" 
+                ng-if="userForm.userName.$touched" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="minlength">This field can be at least 3 characters long.</div>
                 <div ng-message="maxlength">This field can be at most 16 characters long.</div>
                 <div ng-message="pattern">This field can contain only letters, from A to Z and "-" symbol.</div>
             </div>
         </div>
-        <div ng-class="{ 'has-error': userForm.userAge.$touched && userForm.userAge.$invalid }">
+        <div class="user-form__field">
             <label for="userAge">Date of your Birth:</label>
-            <input type="text" name="userAge" placeholder="dd/mm/yyyy" 
+            <input 
+                class="user-form__input"
+                ng-class="{ 'user-form__input--has-error': userForm.userAge.$touched && userForm.userAge.$invalid }"
+                type="text" 
+                name="userAge" 
+                placeholder="dd/mm/yyyy" 
                 ng-model="ModalWindowCtrl.userAge" 
                 ng-model-options="{ updateOn: 'blur' }"     
                 user-age 
                 required >
-            <div ng-messages="userForm.userAge.$error" class="error-messages-container" ng-if="userForm.userAge.$touched">
+            <div class="user-form__error-messages" 
+                ng-messages="userForm.userAge.$error" 
+                ng-if="userForm.userAge.$touched" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="validDateFormat">Please enter a value in dd/mm/yyyy format.</div>
                 <div ng-message="validAge">Please enter your real b-day date.</div>
             </div>
         </div>
-        <div ng-class="{ 'has-error': userForm.userAnnualIncome.$touched && userForm.userAnnualIncome.$invalid }">
+        <div class="user-form__field">
             <label for="annualIncome">Annual income:</label>
-            <div class="annual-income-input">
+            <div class="user-form__input-divider">
                 <input 
+                    class="user-form__input user-form__input--with-divider"
+                    ng-class="{ 'user-form__input--has-error': userForm.userAnnualIncome.$touched && userForm.userAnnualIncome.$invalid }"
                     type="text" 
                     name="userAnnualIncome" 
                     placeholder="Annual income..."
@@ -46,14 +64,14 @@
                     valid-annual-income
                     required >
             </div>
-            <div ng-messages="userForm.userAnnualIncome.$error" class="error-messages-container" ng-if="userForm.userAnnualIncome.$touched">
+            <div class="user-form__error-messages" 
+                ng-messages="userForm.userAnnualIncome.$error" 
+                ng-if="userForm.userAnnualIncome.$touched" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="onlyNumbersValid">This field can contain only numbers.</div>
                 <div ng-message="validValue">Please enter your real annual income.</div>
             </div>
         </div>
-        <div class="submit-container">
-            <button type="submit">Submit</button>   
-        </div>
+        <button class="user-form__submit-button" type="submit">Submit</button>   
     </form>
 </div>

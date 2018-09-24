@@ -1,7 +1,5 @@
-<div ng-if="!NotificationCtrl.isClosed()" class="notification-container">
+<div class="notification" ng-if="!NotificationCtrl.isClosed()">
     <h3>Want to save money?</h3>
-    <a ng-click="NotificationCtrl.showModalWindow()" href="#" class="button">Fill the form</a>
-    <div class="close-button">
-        <a ng-click="NotificationCtrl.closeNotification()" href="#" >+</a>
-    </div>
+    <a class="notification__show-modal-button" ng-click="NotificationCtrl.showModalWindow()" href="#">Fill the form</a>
+    <a class="notification__close-notification-button" ng-click="NotificationCtrl.closeNotification()" href="#" >+</a>
 </div>

@@ -1,8 +1,8 @@
-.card-type-select-wrapper {
+.card-type {
     margin: 30px auto;
     font-size: 24px;
 
-    select {
+    .card-type__select {
         padding: 5px;
         border-radius: 5px;
         font-size: 20px;

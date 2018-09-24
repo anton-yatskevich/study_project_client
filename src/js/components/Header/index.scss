@@ -1,7 +1,8 @@
-header {
+.header {
     height: 60px;
     background-color: #fff;
-    img {
+
+    .header__logo {
         height: 100%;
     }
 }
