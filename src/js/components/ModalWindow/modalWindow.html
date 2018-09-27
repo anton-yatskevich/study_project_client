@@ -69,8 +69,8 @@
                     ng-click="ModalWindowCtrl.findAddress(ModalWindowCtrl.userPostcode)" >
                     Find address
                 </button> 
-                <div class="user-form__select-field" ng-show="ModalWindowCtrl.visibleAddressSelect">
-                    <select name='addressSelect' class="modal-window__address-select" ng-model="ModalWindowCtrl.address" ng-change="ModalWindowCtrl.submitUserAddress(ModalWindowCtrl.address)">
+                <div ng-show="ModalWindowCtrl.visibleAddressSelect">
+                    <select name='addressSelect' class="modal-window__adress-select" ng-model="ModalWindowCtrl.address" ng-change="ModalWindowCtrl.submitUserAddress(ModalWindowCtrl.address)">
                         <option value="" disabled selected hidden>Please select your address</option>
                         <option ng-repeat="address in ModalWindowCtrl.addresses">{{address}}</option>
                     </select>
