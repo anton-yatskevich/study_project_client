@@ -30,6 +30,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    width: 500px;
 
     .user-form__field {
         display: flex;
@@ -101,4 +102,28 @@
     .user-form__submit-button:hover {
         background-color: rgb(1, 99, 165);
     }
+}
+
+.modal-window__adress-select {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.user-form__text-field {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: flex-end;
+    
+}
+
+
+.user-form__input-field-button {
+    padding: 5px 10px;
+}
+
+.user-form__input-field-button--edit {
+    margin-left: 10px;
 }
