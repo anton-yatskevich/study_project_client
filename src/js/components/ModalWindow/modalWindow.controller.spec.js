@@ -102,8 +102,6 @@ describe('Component: modalWindow', () => {
 		ctrl.$scope.userForm.userAge.$commitViewValue();
 		ctrl.$scope.userForm.userAnnualIncome.$setViewValue(1);
 		ctrl.$scope.userForm.userAnnualIncome.$commitViewValue();
-		ctrl.$scope.userForm.userPostcode.$setViewValue('bb11bb');
-		ctrl.$scope.userForm.userPostcode.$commitViewValue();
 		element.find('form').triggerHandler('submit');
 
 		expect(ctrl.$scope.userForm.$valid).toBe(true);

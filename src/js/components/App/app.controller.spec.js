@@ -20,7 +20,7 @@ describe('Component: appContainer', () => {
 		element = $compile(element)(scope);
 		ctrl = element.controller('appContainer');
 
-		$httpBackend.whenGET('http://localhost:3000/cards').respond([{ card: 1 }, { card: 2 }]);
+		$httpBackend.whenGET('http://localhost:3000/').respond([{ card: 1 }, { card: 2 }]);
 	}));
 
 	it('shoul fetch cards', () => {

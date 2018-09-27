@@ -7,7 +7,7 @@ class UserAddressService {
 	}
 
 	getAdresses(postcode) {
-		return this.$http.get(`${API_URL}postcode/${postcode.toLowerCase()}`)
+		return this.$http.get(`${API_URL}postcode/${postcode}`)
 			.then((response) => {
 				const addresses = this.checkResponse(response.data, postcode);
 				return addresses;
