@@ -104,7 +104,7 @@
     }
 }
 
-.modal-window__adress-select {
+.modal-window__address-select {
     width: 100%;
     padding: 10px;
     overflow: hidden;
@@ -114,11 +114,9 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
     align-items: flex-end;
-    
+    font-style: italic;
 }
-
 
 .user-form__input-field-button {
     padding: 5px 10px;
@@ -126,4 +124,27 @@
 
 .user-form__input-field-button--edit {
     margin-left: 10px;
+}
+
+.modal-window__address-list {
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 96px;
+    overflow-y: scroll;
+
+    .modal-window__address-list-item {
+        border-bottom: 1px solid rgb(100, 100, 100);
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .modal-window__address-list-item:hover {
+        background-color: rgb(233, 233, 233);
+    }
+
+    .modal-window__address-list-item:last-of-type {
+        border: none;
+    }
 }
