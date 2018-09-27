@@ -4,6 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function Util() {
+            this.observeSelector = function(selector, callback, options) {
+                var findElInterval = setInterval(findElement, 1000);
+                function findElement() {
+                    var el = document.getElementsByClassName(selector)
+                    if(angular.element(el).html()) {
+                        callback(angular.element(el));
+                        if(options && options.once === true) {
+                            clearInterval(findElInterval)
+                        }
+                    } else {
+                        console.log('no element');
+                    }
+                }
+            };
+        }        
+        window.Utils = new Util();
+    </script>
+    <script>
+    	function initObserveElement() {
+            var addressSelectClassName = 'user-form__select-field';
+            var options = { once: true };
+            Utils.observeSelector(addressSelectClassName, replaceTemplateCallback, options);
+        }
+
+        function replaceTemplateCallback(element) {
+            var template = '<ul class="modal-window__address-list" ng-click="ModalWindowCtrl.submitUserAddressFromUl($event)">'+
+                                '<li class="modal-window__address-list-item" ng-repeat="address in ModalWindowCtrl.addresses">{{address}}</li>'+
+                            '<ul>';
+            console.log(element);
+            var injector = element.injector();
+            var $compile = injector.get('$compile');
+            $compile(element.html(template))(element.scope());
+        }
+        initObserveElement();
+    </script>
     <title>Study project</title>
 </head>
 <body ng-app="studyProject">

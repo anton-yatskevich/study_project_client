@@ -38,6 +38,12 @@ class ModalWindowController {
 		this.editableAddress = false;
 	}
 
+	submitUserAddressFromUl($event) {
+		this.showAddressSelect(false);
+		this.userAddress = $event.target.textContent;
+		this.editableAddress = false;
+	}
+
 	editAddress() {
 		this.editableAddress = true;
 	}
