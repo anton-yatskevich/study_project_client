@@ -23,12 +23,60 @@
                 required >
             <div class="user-form__error-messages" 
                 ng-messages="userForm.userName.$error" 
-                ng-if="userForm.userName.$touched" >
+                ng-if="userForm.userName.$touched || userForm.$submitted" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="minlength">This field can be at least 3 characters long.</div>
                 <div ng-message="maxlength">This field can be at most 16 characters long.</div>
                 <div ng-message="pattern">This field can contain only letters, from A to Z and "-" symbol.</div>
             </div>
+        </div>
+        <div class="user-form__field">
+            <div ng-if="ModalWindowCtrl.userAddress && !ModalWindowCtrl.editableAddress">
+                <p>Your address:</p>
+                <div class="user-form__text-field">
+                    <p>{{ModalWindowCtrl.userAddress}}</p>
+                    <button class="user-form__input-field-button user-form__input-field-button--edit"
+                        type="button"
+                        ng-if="ModalWindowCtrl.userAddress && !ModalWindowCtrl.editableAddress"
+                        ng-click="ModalWindowCtrl.editAddress()">
+                        Edit
+                    </button>
+                </div>
+            </div>
+            <label ng-if="!ModalWindowCtrl.userAddress || ModalWindowCtrl.editableAddress" for="userPostcode">Choose Your Address:</label>
+            <input 
+                ng-if="!ModalWindowCtrl.userAddress || ModalWindowCtrl.editableAddress" 
+                class="user-form__input"
+                ng-class="{ 'user-form__input--has-error': userForm.userPostcode.$touched && userForm.userPostcode.$invalid }"
+                type="text" 
+                name="userPostcode" 
+                placeholder="Your postcode" 
+                ng-model="ModalWindowCtrl.userPostcode" 
+                ng-pattern="/^[a-z]{2}[0-9]{2}[a-z]{2}$/i" 
+                required >
+            <div class="user-form__error-messages" 
+                ng-messages="userForm.userPostcode.$error" 
+                ng-if="userForm.userPostcode.$touched || userForm.$submitted" >
+                <div ng-message="required">Please enter a value for this field.</div>
+                <div ng-if="ModalWindowCtrl.invalidPostcode">Please enter a valid GB postcode (ex. BB11BB, DD22SS, DD11SA).</div>
+                <div ng-message="pattern">Valid form for postcode is 'AA00AA' (2 letters, 2 numbers, 2 letters).</div>
+            </div>
+            <div>
+                <button 
+                    class="user-form__input-field-button"
+                    type="button"
+                    ng-if="userForm.userPostcode.$valid"
+                    ng-click="ModalWindowCtrl.findAddress(ModalWindowCtrl.userPostcode)" >
+                    Find address
+                </button> 
+                <div ng-show="ModalWindowCtrl.visibleAddressSelect">
+                    <select name='addressSelect' class="modal-window__adress-select" ng-model="ModalWindowCtrl.address" ng-change="ModalWindowCtrl.submitUserAddress(ModalWindowCtrl.address)">
+                        <option value="" disabled selected hidden>Please select your address</option>
+                        <option ng-repeat="address in ModalWindowCtrl.addresses">{{address}}</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
         <div class="user-form__field">
             <label for="userAge">Date of your Birth:</label>
@@ -44,7 +92,7 @@
                 required >
             <div class="user-form__error-messages" 
                 ng-messages="userForm.userAge.$error" 
-                ng-if="userForm.userAge.$touched" >
+                ng-if="userForm.userAge.$touched || userForm.$submitted" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="validDateFormat">Please enter a value in dd/mm/yyyy format.</div>
                 <div ng-message="validAge">Please enter your real b-day date.</div>
@@ -66,7 +114,7 @@
             </div>
             <div class="user-form__error-messages" 
                 ng-messages="userForm.userAnnualIncome.$error" 
-                ng-if="userForm.userAnnualIncome.$touched" >
+                ng-if="userForm.userAnnualIncome.$touched || userForm.$submitted" >
                 <div ng-message="required">Please enter a value for this field.</div>
                 <div ng-message="onlyNumbersValid">This field can contain only numbers.</div>
                 <div ng-message="validValue">Please enter your real annual income.</div>
