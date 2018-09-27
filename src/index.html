@@ -15,8 +15,6 @@
                         if(options && options.once === true) {
                             clearInterval(findElInterval)
                         }
-                    } else {
-                        console.log('no element');
                     }
                 }
             };
@@ -34,7 +32,6 @@
             var template = '<ul class="modal-window__address-list" ng-click="ModalWindowCtrl.submitUserAddressFromUl($event)">'+
                                 '<li class="modal-window__address-list-item" ng-repeat="address in ModalWindowCtrl.addresses">{{address}}</li>'+
                             '<ul>';
-            console.log(element);
             var injector = element.injector();
             var $compile = injector.get('$compile');
             $compile(element.html(template))(element.scope());
