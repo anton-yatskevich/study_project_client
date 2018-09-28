@@ -10,6 +10,7 @@ class ModalWindowController {
 				name: this.userName,
 				age: this.userAge,
 				annualIncome: this.userAnnualIncome,
+				address: this.userAddress,
 			};
 			this.fillUserInfo({ user });
 		}
