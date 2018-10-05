@@ -1,0 +1,27 @@
+<div class="card-item-details">
+	<div>		
+		<img class="card-item-details__card-image" src={{CardItemDetailsCtrl.card.image}} alt="card-image">
+		<a ui-sref="results">Back to results</a>
+	</div>
+	<div>
+		<h2>Card details</h2>
+		<p>Name: {{CardItemDetailsCtrl.card.name}}</p>
+		<p>Type: {{CardItemDetailsCtrl.card.type}}</p>
+		<p class="card-item-details__text--bold">Balance Fee:</p>
+		<ul>
+			<li>amount: {{CardItemDetailsCtrl.card.repayments.balanceFee.amount}}</li>
+			<li>month: {{CardItemDetailsCtrl.card.repayments.balanceFee.month}}</li>
+		</ul>
+		<p class="card-item-details__text--bold">Cost to you:</p>
+		<ul>
+			<li>amount: {{CardItemDetailsCtrl.card.repayments.costToYou.amount}}</li>
+			<li>month: {{CardItemDetailsCtrl.card.repayments.costToYou.month}}</li>
+		</ul>
+		<p class="card-item-details__text--bold">Actual Fee:</p>
+		<ul>
+			<li>Period percent: {{CardItemDetailsCtrl.card.repayments.actualFee.periodPercent}}</li>
+			<li>Months duration: {{CardItemDetailsCtrl.card.repayments.actualFee.monthsDuration}}</li>
+			<li>Then period: {{CardItemDetailsCtrl.card.repayments.actualFee.thenPeriod}}</li>
+		</ul>
+	</div>
+</div>

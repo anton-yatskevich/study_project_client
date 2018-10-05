@@ -1,0 +1,29 @@
+.card-item-details {
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .card-item-details__text--bold {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    li {
+        margin-left: 20px;
+    }
+}
+
+.card-item-details__card-image {
+    max-width: 300px;
+}

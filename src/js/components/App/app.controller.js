@@ -40,7 +40,9 @@ class AppController {
 	}
 
 	$onInit() {
-		this.$ngRedux.dispatch(this.FetchService.fetchCards(`${API_URL}cards`));
+		if(!this.cards.length) {
+			this.$ngRedux.dispatch(this.FetchService.fetchCards(`${API_URL}cards`));
+		}
 	}
 }
 

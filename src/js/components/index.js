@@ -6,6 +6,7 @@ import CardListComponent from './CardList';
 import CardItemComponent from './CardItem';
 import Notification from './Notification';
 import ModalWindow from './ModalWindow';
+import CardItemDetails from './CardItemDetails'
 
 export default {
 	AppComponent,
@@ -16,4 +17,5 @@ export default {
 	CardItemComponent,
 	Notification,
 	ModalWindow,
+	CardItemDetails,
 };

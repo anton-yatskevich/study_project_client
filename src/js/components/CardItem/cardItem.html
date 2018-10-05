@@ -14,8 +14,8 @@
 					</p>
 				</div>
 				<div class="card-item__links-field" ng-if="CardItemCtrl.isTablet()">
-						<a class="card-item__button" href="#">Go to site</a>
-						<a class="card-item__link" href="#">Full details...</a>
+					<a class="card-item__button" href="#">Go to site</a>
+					<a class="card-item__link" ui-sref="cardDetails({card: CardItemCtrl.cardToJSON, Id: CardItemCtrl.card.name})">Full details...</a>
 				</div>
 			</div>
 			<div class="card-item__main-info" ng-if="!CardItemCtrl.isMobile()">
@@ -59,7 +59,7 @@
 				<div ng-if="CardItemCtrl.isDesktop()" 
 					class="card-item__links-field card-item__main-info-field" >
 					<a class="card-item__button" href="#">Go to site</a>
-					<a class="card-item__link" href="#">Full details...</a>
+					<a class="card-item__link" ui-sref="cardDetails({card: CardItemCtrl.cardToJSON})">Full details...</a>
 				</div>
 			</div>
 		</div>

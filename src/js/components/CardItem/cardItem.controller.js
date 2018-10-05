@@ -27,6 +27,10 @@ class CardItemController {
 		const potentialSavings = this.card.repayments.costToYou.amount * 2 - this.annualIncome / 12;
 		return potentialSavings > 0 ? potentialSavings : this.card.repayments.costToYou.amount / 2;
 	}
+
+	get cardToJSON() {
+		return JSON.stringify(this.card);
+	}
 }
 
 export default CardItemController;
